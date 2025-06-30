@@ -19,40 +19,6 @@ use Nette\Application\UI\Form;
  */
 class Forms extends Form
 {
-	public const string
-
-		// User data for login and registration
-		AccountUsername = 'username',
-		CurrentPassword = 'current-password',
-		NewPassword = 'new-password',
-		LoginEmail = 'email',
-
-		// Personal information (name)
-		Name = 'name',
-		GivenName = 'given-name',
-		FamilyName = 'family-name',
-
-		// Contact information (phone number)
-		Tel = 'tel',
-
-		// Address (for shipping, billing, etc.)
-		AddressLine1 = 'address-line1',
-		AddressLine2 = 'address-line2',
-		Country = 'country',
-		PostalCode = 'postal-code',
-		City = 'city',
-
-		// Payment details (credit card)
-		CcName = 'cc-name',
-		CcNumber = 'cc-number',
-		CcExp = 'cc-exp',
-		CcCsc = 'cc-csc',
-
-		// Specific information for shipping and billing
-		Shipping = 'shipping',
-		Billing = 'billing',
-		Transaction = 'transaction';
-
 	// List of allowed types
 	private const array AllowedTypes = [
 		'text',
