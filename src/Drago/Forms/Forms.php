@@ -22,10 +22,10 @@ class Forms extends Form
 	public const string
 
 		// User data for login and registration
-		Username = 'username',
+		AccountUsername = 'username',
 		CurrentPassword = 'current-password',
 		NewPassword = 'new-password',
-		Email = 'email',
+		LoginEmail = 'email',
 
 		// Personal information (name)
 		Name = 'name',
@@ -67,7 +67,7 @@ class Forms extends Form
 	 * Adds a text input field to the form with optional validation.
 	 *
 	 * @param string $name The name of the input field.
-	 * @param string $label The label for the input field.
+	 * @param string|null $label The label for the input field.
 	 * @param string|null $type The type of the input ('text', 'password', 'email').
 	 * @param string|null $placeholder The placeholder text for the input field.
 	 * @param string|bool|null $required Defines whether the field is required.
@@ -77,7 +77,7 @@ class Forms extends Form
 	 */
 	public function addTextInput(
 		string $name,
-		string $label,
+		?string $label = null,
 		?string $type = 'text',
 		?string $placeholder = null,
 		string|bool|null $required = null,

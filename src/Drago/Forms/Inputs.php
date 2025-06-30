@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Drago\Forms;
 
 use Nette\Forms\Controls\TextInput;
+use Stringable;
 
 
 /**
@@ -18,7 +19,7 @@ use Nette\Forms\Controls\TextInput;
  */
 class Inputs extends TextInput
 {
-	public function __construct($label, ?string $maxLength = null)
+	public function __construct(string|Stringable|null $label = null, ?string $maxLength = null)
 	{
 		parent::__construct($label, $maxLength);
 	}
