@@ -29,11 +29,12 @@ class Autocomplete
 		Tel = 'tel',
 
 		// Address (for shipping, billing, etc.)
+		StreetAddress = 'street-address',
 		AddressLine1 = 'address-line1',
 		AddressLine2 = 'address-line2',
-		Country = 'country',
+		AddressLevel2 = 'address-level2',
 		PostalCode = 'postal-code',
-		City = 'city',
+		Country = 'country',
 
 		// Payment details (credit card)
 		CcName = 'cc-name',
@@ -44,5 +45,8 @@ class Autocomplete
 		// Specific information for shipping and billing
 		Shipping = 'shipping',
 		Billing = 'billing',
-		Transaction = 'transaction';
+		Transaction = 'transaction',
+
+		// Autocomplete toggles
+		Off = 'off';
 }
