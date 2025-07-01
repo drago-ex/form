@@ -32,7 +32,7 @@ $form->addTextInput(
 ->setPlaceholder('Enter your age');
 ```
 
-## Predefined Inputs
+## Predefined Input
 ```php
 public function addPasswordField(): Input
 {
