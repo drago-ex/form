@@ -50,14 +50,14 @@ class Forms extends Form
 		?string $rule = null,
 		?string $ruleMessage = null,
 		string|int|null $ruleValue = null,
-	): Inputs
+	): Input
 	{
 		// Checking the validity of a type if one is specified
 		if ($type !== null && !in_array($type, self::AllowedTypes, true)) {
 			throw new \InvalidArgumentException("Invalid type '$type' provided for input '$name'.");
 		}
 
-		$input = new Inputs($label);
+		$input = new Input($label);
 		$input->setHtmlType($type ?? 'text');
 
 		// Set optional attributes if provided

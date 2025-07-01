@@ -1,5 +1,5 @@
 {
-	"name": "drago-ex/forms",
+	"name": "drago-ex/form",
 	"type": "library",
 	"description": "Helper classes for Nette forms with extended inputs and shortcuts.",
 	"license": ["MIT"],

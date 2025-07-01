@@ -17,7 +17,7 @@ use Stringable;
  * Custom text input class that extends Nette's TextInput,
  * adding a convenient method for setting the autocomplete attribute.
  */
-class Inputs extends TextInput
+class Input extends TextInput
 {
 	public function __construct(string|Stringable|null $label = null, ?string $maxLength = null)
 	{
