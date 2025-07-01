@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Drago\Forms;
+namespace Drago\Form;
 
 use Nette\Forms\Controls\TextInput;
 use Stringable;
