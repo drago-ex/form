@@ -82,7 +82,8 @@ import SubmitButtonDisable from 'path/to/naja.button"';
 {/embed}
 ```
 
-## JavaScript
+## JavaScript and scss
 ```js
 import PasswordToggle from 'path/to/naja.password"';
+import 'path/to/password.scss';
 ```
