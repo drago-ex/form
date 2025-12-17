@@ -71,3 +71,18 @@ Optionally, include the submitted button disabled script to prevent multiple sub
 ```js
 import SubmitButtonDisable from 'path/to/naja.button"';
 ```
+
+## Password hide/show
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax mt-3'}
+    {import 'path/to/@form-password.latte'}
+    {block form}
+        {include password-toggle, name: 'password', columns: 12}
+    {/block}
+{/embed}
+```
+
+## JavaScript
+```js
+import PasswordToggle from 'path/to/naja.password"';
+```
