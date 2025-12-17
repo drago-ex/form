@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "exports": {
+	".": "./src/Drago/Form/assets/index.js",
 	"./naja.password": "./src/Drago/Form/assets/naja.password.js",
-	".": "./src/Drago/Form/assets/index.js"
+	"./styles": "./src/Drago/Form/assets/password.scss"
   },
   "devDependencies": {
 	"bootstrap": "^5.3.3",

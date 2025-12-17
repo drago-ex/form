@@ -25,6 +25,8 @@
 	},
 	"scripts": {
 		"phpstan": "phpstan analyse --level 5 --configuration tests/phpstan.neon src",
-		"tester": "tester tests -s"
+		"tester": "tester tests -s",
+		"post-install-cmd": ["node npm-install.js"],
+		"post-update-cmd": ["node npm-install.js"]
 	}
 }
