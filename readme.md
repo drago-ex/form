@@ -66,7 +66,7 @@ Use the provided Latte form template for a rendering form with Bootstrap 5 styli
 {/embed}
 ```
 
-## JavaScript
+## JavaScript buttons disabled
 Optionally, include the submitted button disabled script to prevent multiple submits on valid form:
 ```js
 import SubmitButtonDisable from 'path/to/naja.button"';
@@ -82,7 +82,7 @@ import SubmitButtonDisable from 'path/to/naja.button"';
 {/embed}
 ```
 
-## JavaScript and scss
+## JavaScript show/hide password
 ```js
 import PasswordToggle from 'path/to/naja.password"';
 import 'path/to/password.scss';
