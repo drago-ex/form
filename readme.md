@@ -87,3 +87,5 @@ import SubmitButtonDisable from 'path/to/naja.button"';
 import PasswordToggle from 'path/to/naja.password"';
 import 'path/to/password.scss';
 ```
+
+Copy the Latte templates from assets to your project.
