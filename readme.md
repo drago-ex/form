@@ -7,9 +7,11 @@ It provides basic form input building blocks and a flexible Latte template for r
 [![Coding Style](https://github.com/drago-ex/forms/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/forms/actions/workflows/coding-style.yml)
 
 ## Requirements
-- PHP 8.3 or higher
+- PHP >= 8.3
 - Nette Framework
 - Composer
+- Bootstrap
+- Naja
 - Node.js
 
 ## Installation
