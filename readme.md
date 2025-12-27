@@ -6,10 +6,11 @@ It provides basic form input building blocks and a flexible Latte template for r
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fforms.svg)](https://badge.fury.io/ph/drago-ex%2Fforms)
 [![Coding Style](https://github.com/drago-ex/forms/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/forms/actions/workflows/coding-style.yml)
 
-## Technology
+## Requirements
 - PHP 8.3 or higher
-- composer
-- node.js
+- Nette Framework
+- Composer
+- Node.js
 
 ## Installation
 ```bash
