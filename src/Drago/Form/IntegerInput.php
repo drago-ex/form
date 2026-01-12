@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Drago\Form;
 
 
+use Nette\Forms\Controls\TextInput;
+
 /**
  * Custom input for numbers with min/max support.
  */
-class IntegerInput extends Input
+class IntegerInput extends TextInput
 {
 	use FluentAttributes;
 
