@@ -19,41 +19,35 @@ It provides basic form input building blocks and a flexible Latte template for r
 composer require drago-ex/form
 ```
 
+## Features
+
+- Fluent setters for common HTML attributes (`autocomplete`, `placeholder`) via `FluentAttributes`.
+- Custom input controls: `Input` (text/email/password), `Select`, `MultiSelect`.
+- Enum-based HTML `autocomplete` values for type safety (`Autocomplete`).
+- Extended `Forms` class with helper methods:
+    - `addTextInput()`
+    - `addEmailInput()`
+    - `addPasswordInput()`
+    - `addSelectBox()`
+    - `addMultiSelectBox()`
+- Type-safe helper for select controls using `ItemsControl` interface.
+
 ## Usage
-You can create form inputs quickly and flexibly using the `Form` class. The main method is `addTextInput()`,
-which returns a custom `Input` object allowing further chaining for attributes like `autocomplete` and `placeholder`.
-
-## Example
 ```php
-$form->addTextInput(
-    name: 'age',
-    label: 'Age',
-    type: 'number',
-    required: true,
-)
-->setAutocomplete('off')
-->setPlaceholder('Enter your age');
-```
+use Drago\Form\Forms;
+use Drago\Form\Autocomplete;
 
-## Predefined Input
-```php
-public function addPasswordField(): Input
-{
-    return $this->addTextInput(
-        name: 'password',
-        label: 'Password',
-        type: 'password',
-        placeholder: 'Your password',
-        required: 'Please enter your password.',
-    );
-}
-```
+$form = new Forms;
 
-Then you call:
-```php
-$form->addPasswordField();
+$form->addTextInput('username', 'Username')
+     ->setAutocomplete(Autocomplete::Username)
+     ->setPlaceholder('Enter your username');
+
+$form->addSelectBox('country', 'Country', [
+    'cz' => 'Czech Republic',
+    'sk' => 'Slovakia'
+]);
 ```
-This keeps your form definitions clean, standardized, and easy to maintain.
 
 ## Latte Template
 Use the provided Latte form template for a rendering form with Bootstrap 5 styling:
@@ -85,10 +79,15 @@ import SubmitButtonDisable from 'path/to/naja.button"';
 {/embed}
 ```
 
+Copy the Latte templates from assets to your project.
+
 ## JavaScript show/hide password
 ```js
 import PasswordToggle from 'path/to/naja.password"';
 import 'path/to/password.scss';
 ```
 
-Copy the Latte templates from assets to your project.
+## Notes
+- Fully compatible with Nette Forms API – all original methods remain functional.
+- Fluent methods are optional; you can still use standard Nette Form controls.
+- Designed for type safety and clean, readable code.
