@@ -81,6 +81,17 @@ class Forms extends Form
 
 
 	/**
+	 * Add a numeric input (type="number") with fluent min/max support.
+	 */
+	public function addIntegerInput(string $name, ?string $label = null): IntegerInput
+	{
+		$input = new IntegerInput($label);
+		$this->addComponent($input, $name);
+		return $input;
+	}
+
+
+	/**
 	 * Add a select box.
 	 */
 	public function addSelectBox(string $name, ?string $label = null, array $items = []): Select
