@@ -10,13 +10,13 @@ declare(strict_types=1);
 namespace Drago\Form;
 
 use Nette\Application\UI\Form;
-use Nette\Forms\Controls\BaseControl;
-use Nette\Forms\Controls\MultiSelectBox;
-use Nette\Forms\Controls\SelectBox;
 
 
 /**
  * Extended Nette Form with helper methods and fluent input support.
+ *
+ * Provides convenient methods to create inputs and select boxes
+ * with fluent API and autocomplete support.
  */
 class Forms extends Form
 {
@@ -56,33 +56,47 @@ class Forms extends Form
 
 
 	/**
-	 * Add a standard select box.
+	 * Add a select box.
 	 */
-	public function addSelectBox(string $name, ?string $label = null, array $items = []): BaseControl
+	public function addSelectBox(string $name, ?string $label = null, array $items = []): Select
 	{
-		return $this->addSelectInput($name, $label, $items);
+		return $this->addSelectInput(
+			name: $name,
+			label: $label,
+			items: $items,
+			controlClass: Select::class,
+		);
 	}
 
 
 	/**
 	 * Add a multi-select box.
 	 */
-	public function addMultiSelectBox(string $name, ?string $label = null, array $items = []): BaseControl
+	public function addMultiSelectBox(string $name, ?string $label = null, array $items = []): MultiSelect
 	{
-		return $this->addSelectInput($name, $label, $items, true);
+		return $this->addSelectInput(
+			name: $name,
+			label: $label,
+			items: $items,
+			controlClass: MultiSelect::class,
+		);
 	}
 
 
 	/**
 	 * Private helper to create select controls.
+	 *
+	 * @template T of ItemsControl
+	 * @param class-string<T> $controlClass
+	 * @return T
 	 */
 	private function addSelectInput(
 		string $name,
 		?string $label,
 		array $items,
-		bool $multi = false,
-	): BaseControl {
-		$controlClass = $multi ? MultiSelectBox::class : SelectBox::class;
+		string $controlClass,
+	): ItemsControl
+	{
 		$control = new $controlClass($label);
 		$control->setItems($items);
 		$this->addComponent($control, $name);
