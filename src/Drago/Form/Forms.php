@@ -21,37 +21,62 @@ use Nette\Application\UI\Form;
 class Forms extends Form
 {
 	/**
-	 * Add a text input with fluent methods.
+	 * Create and add an Input field.
+	 */
+	private function createInput(string $name, ?string $label, ?string $type = 'text'): Input
+	{
+		$input = new Input($label);
+		$input->setHtmlType($type);
+		$this->addComponent($input, $name);
+		return $input;
+	}
+
+
+	/**
+	 * Create and add a select control.
+	 *
+	 * @template T of ItemsControl
+	 * @param class-string<T> $controlClass
+	 * @return T
+	 */
+	private function addSelectInput(
+		string $name,
+		?string $label,
+		array $items,
+		string $controlClass,
+	): ItemsControl
+	{
+		$control = new $controlClass($label);
+		$control->setItems($items);
+		$this->addComponent($control, $name);
+		return $control;
+	}
+
+
+	/**
+	 * Add a text input field.
 	 */
 	public function addTextInput(string $name, ?string $label = null): Input
 	{
-		$input = new Input($label);
-		$this->addComponent($input, $name);
-		return $input;
+		return $this->createInput($name, $label);
 	}
 
 
 	/**
-	 * Add an email input with fluent methods.
+	 * Add an email input field.
 	 */
 	public function addEmailInput(string $name, ?string $label = null): Input
 	{
-		$input = new Input($label);
-		$input->setHtmlType('email');
-		$this->addComponent($input, $name);
-		return $input;
+		return $this->createInput($name, $label, 'email');
 	}
 
 
 	/**
-	 * Add a password input with fluent methods.
+	 * Add a password input field.
 	 */
 	public function addPasswordInput(string $name, ?string $label = null): Input
 	{
-		$input = new Input($label);
-		$input->setHtmlType('password');
-		$this->addComponent($input, $name);
-		return $input;
+		return $this->createInput($name, $label, 'password');
 	}
 
 
@@ -80,26 +105,5 @@ class Forms extends Form
 			items: $items,
 			controlClass: MultiSelect::class,
 		);
-	}
-
-
-	/**
-	 * Private helper to create select controls.
-	 *
-	 * @template T of ItemsControl
-	 * @param class-string<T> $controlClass
-	 * @return T
-	 */
-	private function addSelectInput(
-		string $name,
-		?string $label,
-		array $items,
-		string $controlClass,
-	): ItemsControl
-	{
-		$control = new $controlClass($label);
-		$control->setItems($items);
-		$this->addComponent($control, $name);
-		return $control;
 	}
 }
