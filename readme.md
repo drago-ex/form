@@ -19,41 +19,25 @@ It provides basic form input building blocks and a flexible Latte template for r
 composer require drago-ex/form
 ```
 
+## Features
+- Autocomplete enum – standard values for HTML autocomplete.
+- FluentAttributes trait – fluent setters for autocomplete and placeholder.
+- Forms class – extended Nette Form with helper methods:
+- addTextInput(), addEmailInput(), addPasswordInput(), addIntegerInput(), addTextAreaForm()
+- Custom inputs: Input, IntegerInput (min/max), Textarea – all support fluent attributes.
+
 ## Usage
-You can create form inputs quickly and flexibly using the `Form` class. The main method is `addTextInput()`,
-which returns a custom `Input` object allowing further chaining for attributes like `autocomplete` and `placeholder`.
-
-## Example
 ```php
-$form->addTextInput(
-    name: 'age',
-    label: 'Age',
-    type: 'number',
-    required: true,
-)
-->setAutocomplete('off')
-->setPlaceholder('Enter your age');
-```
+$form = new Drago\Form\Forms();
 
-## Predefined Input
-```php
-public function addPasswordField(): Input
-{
-    return $this->addTextInput(
-        name: 'password',
-        label: 'Password',
-        type: 'password',
-        placeholder: 'Your password',
-        required: 'Please enter your password.',
-    );
-}
-```
+$form->addTextInput('username', 'Username')
+     ->setAutocomplete(Drago\Form\Autocomplete::Username)
+     ->setPlaceholder('Enter your username');
 
-Then you call:
-```php
-$form->addPasswordField();
+$form->addIntegerInput('age', 'Age')
+     ->setMin(0)
+     ->setMax(120);
 ```
-This keeps your form definitions clean, standardized, and easy to maintain.
 
 ## Latte Template
 Use the provided Latte form template for a rendering form with Bootstrap 5 styling:
@@ -85,10 +69,15 @@ import SubmitButtonDisable from 'path/to/naja.button"';
 {/embed}
 ```
 
+Copy the Latte templates from assets to your project.
+
 ## JavaScript show/hide password
 ```js
 import PasswordToggle from 'path/to/naja.password"';
 import 'path/to/password.scss';
 ```
 
-Copy the Latte templates from assets to your project.
+## Notes
+- Fully compatible with Nette Forms API – all original methods remain functional.
+- Fluent methods are optional; you can still use standard Nette Form controls.
+- Designed for type safety and clean, readable code.
