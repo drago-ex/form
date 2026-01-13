@@ -23,7 +23,7 @@ composer require drago-ex/form
 - Autocomplete enum – standard values for HTML autocomplete.
 - FluentAttributes trait – fluent setters for autocomplete and placeholder.
 - Forms class – extended Nette Form with helper methods:
-- addTextInput(), addEmailInput(), addPasswordInput(), addIntegerInput(), addTextAreaForm()
+- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addTextAreaForm()`
 - Custom inputs: Input, IntegerInput (min/max), Textarea – all support fluent attributes.
 
 ## Usage
