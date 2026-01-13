@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace Drago\Form;
 
 
-use Nette\Forms\Controls\TextInput;
 
 /**
  * Custom input for numbers with min/max support.
  */
-class IntegerInput extends TextInput
+class IntegerInput extends Input
 {
-	use FluentAttributes;
-
 	public function __construct(?string $label = null)
 	{
 		parent::__construct($label);

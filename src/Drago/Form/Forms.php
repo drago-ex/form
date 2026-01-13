@@ -33,27 +33,6 @@ class Forms extends Form
 
 
 	/**
-	 * Create and add a select control.
-	 *
-	 * @template T of ItemsControl
-	 * @param class-string<T> $controlClass
-	 * @return T
-	 */
-	private function addSelectInput(
-		string $name,
-		?string $label,
-		array $items,
-		string $controlClass,
-	): ItemsControl
-	{
-		$control = new $controlClass($label);
-		$control->setItems($items);
-		$this->addComponent($control, $name);
-		return $control;
-	}
-
-
-	/**
 	 * Add a text input field.
 	 */
 	public function addTextInput(string $name, ?string $label = null): Input
@@ -92,29 +71,12 @@ class Forms extends Form
 
 
 	/**
-	 * Add a select box.
+	 * Adds a textarea field.
 	 */
-	public function addSelectBox(string $name, ?string $label = null, array $items = []): Select
+	public function addTextareaForm(string $name, ?string $label = null): Textarea
 	{
-		return $this->addSelectInput(
-			name: $name,
-			label: $label,
-			items: $items,
-			controlClass: Select::class,
-		);
-	}
-
-
-	/**
-	 * Add a multi-select box.
-	 */
-	public function addMultiSelectBox(string $name, ?string $label = null, array $items = []): MultiSelect
-	{
-		return $this->addSelectInput(
-			name: $name,
-			label: $label,
-			items: $items,
-			controlClass: MultiSelect::class,
-		);
+		$input = new Textarea($label);
+		$this->addComponent($input, $name);
+		return $input;
 	}
 }
