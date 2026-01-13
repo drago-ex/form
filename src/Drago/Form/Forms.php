@@ -73,7 +73,7 @@ class Forms extends Form
 	/**
 	 * Adds a textarea field.
 	 */
-	public function addTextareaForm(string $name, ?string $label = null): Textarea
+	public function addTextAreaForm(string $name, ?string $label = null): Textarea
 	{
 		$input = new Textarea($label);
 		$this->addComponent($input, $name);
