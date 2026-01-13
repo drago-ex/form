@@ -20,33 +20,23 @@ composer require drago-ex/form
 ```
 
 ## Features
-
-- Fluent setters for common HTML attributes (`autocomplete`, `placeholder`) via `FluentAttributes`.
-- Custom input controls: `Input` (text/email/password), `Select`, `MultiSelect`.
-- Enum-based HTML `autocomplete` values for type safety (`Autocomplete`).
-- Extended `Forms` class with helper methods:
-    - `addTextInput()`
-    - `addEmailInput()`
-    - `addPasswordInput()`
-    - `addSelectBox()`
-    - `addMultiSelectBox()`
-- Type-safe helper for select controls using `ItemsControl` interface.
+- Autocomplete enum – standard values for HTML autocomplete.
+- FluentAttributes trait – fluent setters for autocomplete and placeholder.
+- Forms class – extended Nette Form with helper methods:
+- addTextInput(), addEmailInput(), addPasswordInput(), addIntegerInput(), addTextAreaForm()
+- Custom inputs: Input, IntegerInput (min/max), Textarea – all support fluent attributes.
 
 ## Usage
 ```php
-use Drago\Form\Forms;
-use Drago\Form\Autocomplete;
-
-$form = new Forms;
+$form = new Drago\Form\Forms();
 
 $form->addTextInput('username', 'Username')
-     ->setAutocomplete(Autocomplete::Username)
+     ->setAutocomplete(Drago\Form\Autocomplete::Username)
      ->setPlaceholder('Enter your username');
 
-$form->addSelectBox('country', 'Country', [
-    'cz' => 'Czech Republic',
-    'sk' => 'Slovakia'
-]);
+$form->addIntegerInput('age', 'Age')
+     ->setMin(0)
+     ->setMax(120);
 ```
 
 ## Latte Template
