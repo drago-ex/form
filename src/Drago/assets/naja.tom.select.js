@@ -5,7 +5,7 @@ import TomSelect from "tom-select";
  * Initializes TomSelect on elements with the class 'select-tom'.
  * If the element has the 'data-locked' attribute, the remove_button plugin is disabled.
  *
- * @param {HTMLElement} el The parent element where TomSelect should be initialized.
+ * @param {ParentNode} el The parent element where TomSelect should be initialized.
  */
 function tomSelect(el) {
 	el.querySelectorAll('.select-tom').forEach(e => {
