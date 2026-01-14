@@ -7,6 +7,9 @@ export default class SubmitButtonDisable {
 				}
 
 				const listener = (event) => {
+					if (!form.classList.contains('ajax')) {
+						return;
+					}
 					if (form.checkValidity()) {
 						form.querySelectorAll('[data-btn-submit]').forEach(btn => btn.disabled = true);
 					} else {
