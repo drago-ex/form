@@ -1,0 +1,8 @@
+//
+// tom select
+//
+
+input.form-control:read-only,
+[data-locked] + .select-tom {
+  background-color: #efefef;
+}
