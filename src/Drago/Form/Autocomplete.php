@@ -48,4 +48,7 @@ enum Autocomplete: string
 
 	// Toggle
 	case Off = 'off';
+
+	 // Recovery / OTP
+    case OneTimeCode = 'one-time-code';
 }
