@@ -1,5 +1,4 @@
 // CSS (side-effect import)
-import "tom-select/dist/css/tom-select.bootstrap5.css";
 import './password.scss';
 import './tom.select.scss';
 
