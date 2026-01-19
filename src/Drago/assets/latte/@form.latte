@@ -2,8 +2,9 @@
 {varType string $class}
 {varType string $najaHistory}
 {varType Nette\Application\UI\Form $form}
+{default bool $defaultClass = true}
 
-<form n:name="$name" n:class="'row g-3', $class ?? null" {ifset $najaHistory}data-naja-history="{$najaHistory}"{/ifset}>
+<form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class ?? null" {ifset $najaHistory}data-naja-history="{$najaHistory}"{/ifset}>
     <ul n:if="$form->hasErrors()" class="errors">
         <li n:foreach="$form->errors as $error">{_$error}</li>
     </ul>
