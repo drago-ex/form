@@ -42,30 +42,30 @@ $form->addIntegerInput('age', 'Age')
 ## Latte Template
 Use the provided Latte form template for a rendering form with Bootstrap 5 styling:
 ```latte
-{embed 'path/to/@form.latte', name: 'register', class: 'ajax mt-3'}
-    {block form}
-        {include input, name: 'username', columns: 6}
-        {include input, name: 'email', columns: 6}
-        <div class="d-block">
-            {include submit, name: 'send'}
-        </div>
-    {/block}
+{embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
+     {block form}
+          {include input, name: 'username', columns: 6}
+          {include input, name: 'email', columns: 6}
+          <div class="d-block">
+               {include submit, name: 'send'}
+          </div>
+     {/block}
 {/embed}
 ```
 
 ## JavaScript buttons disabled
 Optionally, include the submitted button disabled script to prevent multiple submits on valid form:
 ```js
-import SubmitButtonDisable from 'path/to/naja.button"';
+import SubmitButtonDisable from 'path/to/naja.button';
 ```
 
 ## Password hide/show
 ```latte
-{embed 'path/to/@form.latte', name: 'add', class: 'ajax mt-3'}
-    {import 'path/to/@form-password.latte'}
-    {block form}
-        {include password-toggle, name: 'password', columns: 12}
-    {/block}
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-password.latte'}
+     {block form}
+          {include password-toggle, name: 'password', columns: 12}
+     {/block}
 {/embed}
 ```
 
@@ -73,8 +73,22 @@ Copy the Latte templates from assets to your project.
 
 ## JavaScript show/hide password
 ```js
-import PasswordToggle from 'path/to/naja.password"';
+import PasswordToggle from 'path/to/naja.password';
 import 'path/to/password.scss';
+```
+
+## JavaScript Tom select
+```js
+import TomSelectExtension from 'path/to/naja.button';
+```
+
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-tom-select.latte'}
+     {block form}
+          {include selectTom, name: 'tom', columns: 12, class: 'select-tom'}
+     {/block}
+{/embed}
 ```
 
 ## Notes
