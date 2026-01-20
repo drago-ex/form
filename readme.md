@@ -80,6 +80,7 @@ import 'path/to/password.scss';
 ## JavaScript Tom select
 ```js
 import TomSelectExtension from 'path/to/naja.button';
+import 'path/to/tom.select.scss';
 ```
 
 ```latte
