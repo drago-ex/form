@@ -41,6 +41,6 @@
 {define submit, string $name, string $class}
     {do $inputClass = "btn btn-primary"}
     {input $name, data-btn-submit => true, class => $class
-    ? "$inputClass $class"
+    ? "$class"
     : "$inputClass"}
 {/define}
