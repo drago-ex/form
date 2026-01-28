@@ -42,9 +42,9 @@
     </div>
 {/define}
 
-{define submit, string $name, string $class, bool $btnDisable = true}
+{define submit, string $name, string $class}
     {do $inputClass = "btn btn-primary"}
-    {input $name, $btnDisable ? data-btn-submit => true : null, class => $class
+    {input $name, data-btn-submit => true, class => $class
     ? "$class"
     : "$inputClass"}
 {/define}
