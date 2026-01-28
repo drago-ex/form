@@ -4,7 +4,11 @@
 {varType Nette\Application\UI\Form $form}
 {default bool $defaultClass = true}
 
-<form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class ?? null" {ifset $najaHistory}data-naja-history="{$najaHistory}"{/ifset}>
+{do $formAttr = [
+    'data-naja-history' => $najaHistory ?? null,
+]}
+
+<form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class ?? null" n:attr="$formAttr">
     <ul n:if="$form->hasErrors()" class="errors">
         <li n:foreach="$form->errors as $error">{_$error}</li>
     </ul>
@@ -38,9 +42,9 @@
     </div>
 {/define}
 
-{define submit, string $name, string $class}
+{define submit, string $name, string $class, bool $btnDisable = true}
     {do $inputClass = "btn btn-primary"}
-    {input $name, data-btn-submit => true, class => $class
+    {input $name, $btnDisable ? data-btn-submit => true : null, class => $class
     ? "$class"
     : "$inputClass"}
 {/define}
