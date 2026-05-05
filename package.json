@@ -4,12 +4,25 @@
   "type": "module",
   "exports": {
 	".": "./src/Drago/assets/index.js",
-	"./naja.password": "./src/Drago/assets/naja.password.js",
-	"./naja.button": "./src/Drago/assets/naja.button.js",
-	"./styles": "./src/Drago/assets/password.scss"
+	"./password-toggle": "./src/Drago/assets/password-toggle.js",
+	"./submit-disable": "./src/Drago/assets/submit-disable.js",
+	"./tom-select": "./src/Drago/assets/tom-select.js",
+	"./styles/password-toggle": "./src/Drago/assets/password-toggle.scss",
+	"./styles/tom-select": "./src/Drago/assets/tom-select.scss"
+  },
+  "peerDependencies": {
+	"bootstrap": ">=5.0.0",
+	"naja": ">=3.0.0",
+	"tom-select": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+	"tom-select": {
+	  "optional": true
+	}
   },
   "devDependencies": {
 	"bootstrap": "^5.3.3",
-	"naja": "^3.2.1"
+	"naja": "^3.2.1",
+	"tom-select": "^2.4.3"
   }
 }

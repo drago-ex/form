@@ -74,7 +74,7 @@ Copy the Latte templates from assets to your project.
 ## JavaScript show/hide password
 ```js
 import PasswordToggle from 'path/to/naja.password';
-import 'path/to/password.scss';
+import 'path/to/toggle.password.scss';
 ```
 
 ## JavaScript Tom select
