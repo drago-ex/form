@@ -53,6 +53,18 @@ Use the provided Latte form template for a rendering form with Bootstrap 5 styli
 {/embed}
 ```
 
+## JavaScript setup
+Since the package is installed via Composer, add the following to your `package.json` to make the `drago-form` alias available in your bundler:
+```json
+{
+  "type": "module",
+  "dependencies": {
+    "drago-form": "file:vendor/drago-ex/form"
+  }
+}
+```
+Then run `npm install`.
+
 ## JavaScript buttons disabled
 Optionally, include the submit disable script to prevent multiple submits on valid form:
 ```js
