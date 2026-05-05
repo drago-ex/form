@@ -54,9 +54,9 @@ Use the provided Latte form template for a rendering form with Bootstrap 5 styli
 ```
 
 ## JavaScript buttons disabled
-Optionally, include the submitted button disabled script to prevent multiple submits on valid form:
+Optionally, include the submit disable script to prevent multiple submits on valid form:
 ```js
-import SubmitButtonDisable from 'path/to/naja.button';
+import SubmitButtonDisable from 'drago-form/submit-disable';
 ```
 
 ## Password hide/show
@@ -73,14 +73,14 @@ Copy the Latte templates from assets to your project.
 
 ## JavaScript show/hide password
 ```js
-import PasswordToggle from 'path/to/naja.password';
-import 'path/to/toggle.password.scss';
+import PasswordToggle from 'drago-form/password-toggle';
+import 'drago-form/styles/password-toggle';
 ```
 
 ## JavaScript Tom select
 ```js
-import TomSelectExtension from 'path/to/naja.button';
-import 'path/to/tom.select.scss';
+import TomSelectExtension from 'drago-form/tom-select';
+import 'drago-form/styles/tom-select';
 ```
 
 ```latte
