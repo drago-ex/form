@@ -90,7 +90,7 @@ import PasswordToggle from 'drago-form/password-toggle';
 
 ## JavaScript Tom select
 ```js
-import TomSelectExtension from 'drago-form/tom-select';
+import TomSelectHandler from 'drago-form/tom-select';
 ```
 
 ```latte
