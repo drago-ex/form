@@ -1,3 +1,5 @@
+import './password-toggle.scss';
+
 export default class PasswordToggle {
 	initialize(naja) {
 		const attachPasswordToggle = (root) => {

@@ -1,6 +1,7 @@
+import './tom-select.scss';
 import TomSelect from 'tom-select';
 
-export default class TomSelectExtension {
+export default class TomSelectHandler {
 	initialize(naja) {
 		const tomSelect = (el) => {
 			el.querySelectorAll('.select-tom').forEach(e => {

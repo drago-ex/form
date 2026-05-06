@@ -10,8 +10,8 @@
 	"./styles/password-toggle": "./src/Drago/assets/password-toggle.scss",
 	"./styles/tom-select": "./src/Drago/assets/tom-select.scss"
   },
+  "sideEffects": ["**/*.scss"],
   "peerDependencies": {
-	"bootstrap": ">=5.0.0",
 	"naja": ">=3.0.0",
 	"tom-select": ">=2.0.0"
   },
@@ -21,7 +21,6 @@
 	}
   },
   "devDependencies": {
-	"bootstrap": "^5.3.3",
 	"naja": "^3.2.1",
 	"tom-select": "^2.4.3"
   }
