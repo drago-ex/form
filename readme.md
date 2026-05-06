@@ -10,6 +10,7 @@ It provides basic form input building blocks and a flexible Latte template for r
 - PHP >= 8.3
 - Nette Framework
 - Composer
+- Bootstrap
 - Naja
 - Node.js
 
