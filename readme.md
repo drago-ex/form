@@ -40,7 +40,7 @@ $form->addIntegerInput('age', 'Age')
 ```
 
 ## Latte Template
-Use the provided Latte form template for a rendering form with Bootstrap 5 styling:
+Use the provided Latte form template for a rendering form with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
 ```latte
 {embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
      {block form}
