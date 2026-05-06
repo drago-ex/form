@@ -86,13 +86,11 @@ Copy the Latte templates from assets to your project.
 ## JavaScript show/hide password
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
-import 'drago-form/styles/password-toggle';
 ```
 
 ## JavaScript Tom select
 ```js
 import TomSelectExtension from 'drago-form/tom-select';
-import 'drago-form/styles/tom-select';
 ```
 
 ```latte
