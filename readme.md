@@ -1,8 +1,9 @@
-## Drago Form
+# Drago Form
+
 Drago Form is a lightweight and extendable form component built on top of the Nette Framework.
 It provides basic form input building blocks and a flexible Latte template for rendering Bootstrap 5 styled forms.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/drago-ex/form/main/license)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/form/blob/main/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fform.svg)](https://badge.fury.io/ph/drago-ex%2Fform)
 [![Coding Style](https://github.com/drago-ex/form/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/form/actions/workflows/coding-style.yml)
 
@@ -19,14 +20,7 @@ It provides basic form input building blocks and a flexible Latte template for r
 composer require drago-ex/form
 ```
 
-## Features
-- Autocomplete enum – standard values for HTML autocomplete.
-- FluentAttributes trait – fluent setters for autocomplete and placeholder.
-- Forms class – extended Nette Form with helper methods:
-- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addTextAreaForm()`
-- Custom inputs: Input, IntegerInput (min/max), Textarea – all support fluent attributes.
-
-## Usage
+## Examples
 ```php
 $form = new Drago\Form\Forms();
 
@@ -38,6 +32,13 @@ $form->addIntegerInput('age', 'Age')
      ->setMin(0)
      ->setMax(120);
 ```
+
+## Features
+- Autocomplete enum - standard values for HTML autocomplete.
+- FluentAttributes trait - fluent setters for autocomplete and placeholder.
+- Forms class - extended Nette Form with helper methods:
+- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addTextAreaForm()`
+- Custom inputs: Input, IntegerInput (min/max), Textarea - all support fluent attributes.
 
 ## Latte Template
 Use the provided Latte form template for a rendering form with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
@@ -103,6 +104,6 @@ import TomSelectHandler from 'drago-form/tom-select';
 ```
 
 ## Notes
-- Fully compatible with Nette Forms API – all original methods remain functional.
+- Fully compatible with Nette Forms API - all original methods remain functional.
 - Fluent methods are optional; you can still use standard Nette Form controls.
 - Designed for type safety and clean, readable code.
