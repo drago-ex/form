@@ -1,4 +1,3 @@
-import './tom-select.scss';
 import TomSelect from 'tom-select';
 
 export default class TomSelectHandler {
