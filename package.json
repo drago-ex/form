@@ -7,8 +7,8 @@
 	"./password-toggle": "./src/Drago/assets/password-toggle.js",
 	"./submit-disable": "./src/Drago/assets/submit-disable.js",
 	"./tom-select": "./src/Drago/assets/tom-select.js",
-	"./password-toggle.scss": "./src/Drago/assets/password-toggle.scss",
-	"./tom-select.scss": "./src/Drago/assets/tom-select.scss"
+	"./styles/password-toggle": "./src/Drago/assets/password-toggle.scss",
+	"./styles/tom-select": "./src/Drago/assets/tom-select.scss"
   },
   "sideEffects": ["**/*.scss"],
   "peerDependencies": {
