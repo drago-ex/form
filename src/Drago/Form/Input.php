@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Drago Extension
- * Package built on Nette Framework
- */
-
 declare(strict_types=1);
 
 namespace Drago\Form;
@@ -12,12 +7,7 @@ namespace Drago\Form;
 use Nette\Forms\Controls\TextInput;
 
 
-/**
- * Custom text input extending Nette's TextInput.
- *
- * Adds fluent setter methods for common HTML attributes
- * via the FluentAttributes trait.
- */
+/** Custom text input with fluent attribute setters. */
 class Input extends TextInput
 {
 	use FluentAttributes;

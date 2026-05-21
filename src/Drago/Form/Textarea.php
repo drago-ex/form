@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Drago\Form;
 
+use Nette\Forms\Controls\TextArea as NetteTextArea;
 
-class Textarea extends \Nette\Forms\Controls\TextArea
+
+/** Custom textarea with fluent attribute setters. */
+class Textarea extends NetteTextArea
 {
 	use FluentAttributes;
 }
