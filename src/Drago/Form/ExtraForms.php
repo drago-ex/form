@@ -8,7 +8,7 @@ use Nette\Forms\Form;
 
 
 /** Commonly used inputs. */
-class FormsExtra extends Forms
+class ExtraForms extends Forms
 {
 	/** Adds a password input field. */
 	public function addPasswordField(): Input
