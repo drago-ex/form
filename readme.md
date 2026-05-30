@@ -20,6 +20,10 @@ It provides basic form input building blocks and a flexible Latte template for r
 composer require drago-ex/form
 ```
 
+## Project files
+The package has `extra.drago-project.skip` set to `false`, so `drago-install` copies the configured files automatically.
+If `skip` is set to `true`, copy those files manually according to the `copy` section in `composer.json`.
+
 ## Examples
 ```php
 $form = new Drago\Form\Forms();
@@ -32,6 +36,12 @@ $form->addIntegerInput('age', 'Age')
      ->setMin(0)
      ->setMax(120);
 ```
+
+## ExtraForms
+`ExtraForms` extends `Forms` with commonly used preconfigured fields:
+- `addPasswordField()` - password input named `password`.
+- `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
+- `addEmailField()` - email input named `email` with autocomplete and email validation.
 
 ## Features
 - Autocomplete enum - standard values for HTML autocomplete.
@@ -81,8 +91,6 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
      {/block}
 {/embed}
 ```
-
-Copy the Latte templates from assets to your project.
 
 ## JavaScript show/hide password
 ```js
