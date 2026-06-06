@@ -56,8 +56,12 @@ input.form-control:read-only,
     color: var(--bs-white);
   }
 
-  &.plugin-remove_button .item .remove {
-    border-left-color: var(--bs-border-color-translucent);
+  &.plugin-remove_button:not(.rtl) .item .remove {
+    border-left-color: rgba(var(--bs-body-color-rgb), 0.12);
+  }
+
+  &.plugin-remove_button.rtl .item .remove {
+    border-right-color: rgba(var(--bs-body-color-rgb), 0.12);
   }
 }
 
