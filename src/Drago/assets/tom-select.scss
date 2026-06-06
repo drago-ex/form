@@ -55,6 +55,10 @@ input.form-control:read-only,
     background-color: var(--bs-primary);
     color: var(--bs-white);
   }
+
+  &.plugin-remove_button .item .remove {
+    border-left-color: var(--bs-border-color-translucent);
+  }
 }
 
 .ts-dropdown {
