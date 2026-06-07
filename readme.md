@@ -53,7 +53,7 @@ $form->addIntegerInput('age', 'Age')
 - Custom inputs: Input, IntegerInput (min/max), Textarea - all support fluent attributes.
 
 ## Latte Template
-Use the provided Latte form template for a rendering form with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
+Use the provided Latte form template to render forms with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
 ```latte
 {embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
      {block form}
@@ -97,13 +97,13 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
 ## JavaScript show/hide password
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
-import 'drago-form/password-toggle.scss';
+import 'drago-form/styles/password-toggle';
 ```
 
 ## JavaScript Tom select
 ```js
 import TomSelectHandler from 'drago-form/tom-select';
-import 'drago-form/tom-select.scss';
+import 'drago-form/styles/tom-select';
 ```
 
 ```latte

@@ -13,55 +13,55 @@ input.form-control:read-only,
 .ts-wrapper {
   &.form-control,
   &.form-select {
-    padding: 0;
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
-    border-color: var(--bs-border-color);
+	padding: 0;
+	background-color: var(--bs-body-bg);
+	color: var(--bs-body-color);
+	border-color: var(--bs-border-color);
   }
 
   .ts-control {
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
-    border-color: var(--bs-border-color);
+	background-color: var(--bs-body-bg);
+	color: var(--bs-body-color);
+	border-color: var(--bs-border-color);
 
-    input {
-      color: var(--bs-body-color);
-    }
+	input {
+	  color: var(--bs-body-color);
+	}
 
-    input::placeholder {
-      color: var(--bs-secondary-color);
-    }
+	input::placeholder {
+	  color: var(--bs-secondary-color);
+	}
   }
 
   &.focus .ts-control {
-    color: var(--bs-body-color);
-    background-color: var(--bs-body-bg);
-    border-color: var(--bs-border-color);
+	color: var(--bs-body-color);
+	background-color: var(--bs-body-bg);
+	border-color: var(--bs-border-color);
   }
 
   &.disabled .ts-control,
   &.locked .ts-control {
-    background-color: var(--bs-secondary-bg);
-    color: var(--bs-secondary-color);
+	background-color: var(--bs-secondary-bg);
+	color: var(--bs-secondary-color);
   }
 
   &.multi .ts-control > div {
-    background-color: var(--bs-tertiary-bg);
-    color: var(--bs-body-color);
-    border-color: var(--bs-border-color);
+	background-color: var(--bs-tertiary-bg);
+	color: var(--bs-body-color);
+	border-color: var(--bs-border-color);
   }
 
   &.multi .ts-control > div.active {
-    background-color: var(--bs-primary);
-    color: var(--bs-white);
+	background-color: var(--bs-primary);
+	color: var(--bs-white);
   }
 
   &.plugin-remove_button:not(.rtl) .item .remove {
-    border-left-color: rgba(var(--bs-body-color-rgb), 0.12);
+	border-left-color: rgba(var(--bs-body-color-rgb), 0.12);
   }
 
   &.plugin-remove_button.rtl .item .remove {
-    border-right-color: rgba(var(--bs-body-color-rgb), 0.12);
+	border-right-color: rgba(var(--bs-body-color-rgb), 0.12);
   }
 }
 
@@ -71,19 +71,19 @@ input.form-control:read-only,
   border-color: var(--bs-border-color);
 
   .active {
-    background-color: var(--bs-tertiary-bg);
-    color: var(--bs-body-color);
+	background-color: var(--bs-tertiary-bg);
+	color: var(--bs-body-color);
   }
 
   .create,
   .no-results,
   .optgroup-header,
   .option {
-    color: var(--bs-body-color);
+	color: var(--bs-body-color);
   }
 
   .spinner {
-    border-color: var(--bs-border-color);
-    border-top-color: var(--bs-primary);
+	border-color: var(--bs-border-color);
+	border-top-color: var(--bs-primary);
   }
 }
