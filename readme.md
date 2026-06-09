@@ -45,6 +45,26 @@ $form->addIntegerInput('age', 'Age')
 - `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
 - `addEmailField()` - email input named `email` with autocomplete and email validation.
 
+## Password rules
+`PasswordRules` provides reusable validation for strong passwords.
+
+```php
+use Drago\Form\Rules\PasswordRules;
+
+$form->addPasswordField()
+	->addRule($form::MinLength, 'Password must be at least %d characters long.', 8)
+	->addRule($form::Pattern, PasswordRules::strongMessage(), PasswordRules::strongPattern());
+```
+
+The strong password rule requires:
+
+- at least 8 characters
+- one uppercase letter
+- one lowercase letter
+- one number
+- one special character
+- no whitespace characters
+
 ## Features
 - Autocomplete enum - standard values for HTML autocomplete.
 - FluentAttributes trait - fluent setters for autocomplete and placeholder.
