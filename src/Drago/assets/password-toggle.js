@@ -1,7 +1,7 @@
 export default class PasswordToggle {
 	initialize(naja) {
 		const attachPasswordToggle = (root) => {
-			root.querySelectorAll('.input-group').forEach((group) => {
+			root.querySelectorAll('.password-toggle-wrapper').forEach((group) => {
 				const input = group.querySelector('.input-password');
 				const button = group.querySelector('.toggle-password');
 

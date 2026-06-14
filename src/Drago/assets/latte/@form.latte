@@ -1,7 +1,7 @@
 {varType string $name}
-{varType string $class}
-{varType string $najaHistory}
 {varType Nette\Application\UI\Form $form}
+{default ?string $class = null}
+{default ?string $najaHistory = null}
 {default bool $defaultClass = true}
 
 {do $formAttr = [
@@ -18,7 +18,7 @@
 </form>
 
 {* General form field definition (input, select, textarea) using switch *}
-{define input, string $type = 'text', string $name, int $columns = 12, string $class, int $rows = 3}
+{define input, string $type = 'text', string $name, int $columns = 12, ?string $class = null, int $rows = 3}
 	<div class="col-md-{$columns}">
 		{label $name, class => "form-label fw-semibold" /}
 		{do $inputClass = "form-control"}
@@ -42,7 +42,7 @@
 	</div>
 {/define}
 
-{define submit, string $name, string $class}
+{define submit, string $name, ?string $class = null}
 	{do $inputClass = "btn btn-primary"}
 	{input $name, data-btn-submit => true, class => $class
 	? "$class"
