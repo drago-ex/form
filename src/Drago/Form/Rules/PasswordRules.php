@@ -12,14 +12,12 @@ final class PasswordRules
 	public const string StrongMessage = 'The password must contain uppercase and lowercase letters, numbers, and a special character.';
 
 
-	/** Returns the strong password validation pattern. */
 	public static function strongPattern(): string
 	{
 		return self::StrongPattern;
 	}
 
 
-	/** Returns the strong password validation message. */
 	public static function strongMessage(): string
 	{
 		return self::StrongMessage;
