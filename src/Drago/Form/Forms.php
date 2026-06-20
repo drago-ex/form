@@ -19,28 +19,24 @@ class Forms extends Form
 	}
 
 
-	/** Adds a text input field. */
 	public function addTextInput(string $name, ?string $label = null): Input
 	{
 		return $this->createInput($name, $label);
 	}
 
 
-	/** Adds an email input field. */
 	public function addEmailInput(string $name, ?string $label = null): Input
 	{
 		return $this->createInput($name, $label, 'email');
 	}
 
 
-	/** Adds a password input field. */
 	public function addPasswordInput(string $name, ?string $label = null): Input
 	{
 		return $this->createInput($name, $label, 'password');
 	}
 
 
-	/** Adds a numeric input with min/max support. */
 	public function addIntegerInput(string $name, ?string $label = null): IntegerInput
 	{
 		$input = new IntegerInput($label);
@@ -49,7 +45,6 @@ class Forms extends Form
 	}
 
 
-	/** Adds a textarea field. */
 	public function addTextAreaForm(string $name, ?string $label = null): Textarea
 	{
 		$input = new Textarea($label);

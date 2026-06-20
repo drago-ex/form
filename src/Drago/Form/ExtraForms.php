@@ -10,7 +10,6 @@ use Nette\Forms\Form;
 /** Commonly used inputs. */
 class ExtraForms extends Forms
 {
-	/** Adds a password input field. */
 	public function addPasswordField(): Input
 	{
 		return $this->addPasswordInput('password', 'Password')
@@ -19,7 +18,6 @@ class ExtraForms extends Forms
 	}
 
 
-	/** Adds a password confirmation input field. */
 	public function addPasswordConfirmationField(): Input
 	{
 		$passwordField = $this->addPasswordInput('verify', 'Password to check')
@@ -35,7 +33,6 @@ class ExtraForms extends Forms
 	}
 
 
-	/** Adds an email input field. */
 	public function addEmailField(): Input
 	{
 		return $this->addEmailInput('email', 'Email')
