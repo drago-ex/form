@@ -23,23 +23,23 @@
 		{label $name, class => "form-label fw-semibold" /}
 		{if $type === 'select'}
 			{input $name, class => $class
-				? "form-select $class"
-				: "form-select"}
+			? "form-select $class"
+			: "form-select"}
 
 		{elseif $type === 'textarea'}
 			{input $name, rows => $rows, class => $class
-				? "form-control $class"
-				: "form-control"}
+			? "form-control $class"
+			: "form-control"}
 
 		{elseif $type === 'range'}
 			{input $name, class => $class
-				? "form-range $class"
-				: "form-range"}
+			? "form-range $class"
+			: "form-range"}
 
 		{else}
 			{input $name, class => $class
-				? "form-control $class"
-				: "form-control"}
+			? "form-control $class"
+			: "form-control"}
 		{/if}
 	</div>
 {/define}
