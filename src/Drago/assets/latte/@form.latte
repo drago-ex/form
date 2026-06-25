@@ -21,30 +21,71 @@
 {define input, string $type = 'text', string $name, int $columns = 12, ?string $class = null, int $rows = 3}
 	<div class="col-md-{$columns} form-error">
 		{label $name, class => "form-label fw-semibold" /}
-		{do $inputClass = "form-control"}
-
-		{if $type in ['text', 'datetime', 'file']}
+		{if $type === 'select'}
 			{input $name, class => $class
-			? "$inputClass $class"
-			: "$inputClass"}
-
-		{elseif $type === 'select'}
-			{do $inputClass = "form-select"}
-			{input $name, class => $class
-			? "$inputClass $class"
-			: "$inputClass"}
+				? "form-select $class"
+				: "form-select"}
 
 		{elseif $type === 'textarea'}
 			{input $name, rows => $rows, class => $class
-			? "$inputClass $class"
-			: "$inputClass"}
+				? "form-control $class"
+				: "form-control"}
+
+		{elseif $type === 'range'}
+			{input $name, class => $class
+				? "form-range $class"
+				: "form-range"}
+
+		{else}
+			{input $name, class => $class
+				? "form-control $class"
+				: "form-control"}
 		{/if}
+	</div>
+{/define}
+
+{define checkbox, string $name, int $columns = 12, ?string $class = null}
+	<div class="col-md-{$columns} form-error">
+		<div class="form-check">
+			{input $name, class => $class ? "form-check-input $class" : "form-check-input"}
+			{label $name, class => "form-check-label" /}
+		</div>
+	</div>
+{/define}
+
+{define checkboxList, string $name, int $columns = 12, ?string $label = null}
+
+	{var $control = $form[$name]}
+	{varType Nette\Forms\Controls\CheckboxList $control}
+
+	<div class="col-md-{$columns} form-error">
+		<div n:if="$label" class="form-label fw-semibold">{$label}</div>
+		{foreach $control->getItems() as $key => $text}
+			<div class="form-check">
+				{input $name:$key, class => "form-check-input"}
+				{label $name:$key, class => "form-check-label" /}
+			</div>
+		{/foreach}
+	</div>
+{/define}
+
+{define radioList, string $name, int $columns = 12, ?string $label = null}
+
+	{var $control = $form[$name]}
+	{varType Nette\Forms\Controls\RadioList $control}
+
+	<div class="col-md-{$columns} form-error">
+		<div n:if="$label" class="form-label fw-semibold">{$label}</div>
+		{foreach $control->getItems() as $key => $text}
+			<div class="form-check">
+				{input $name:$key, class => "form-check-input"}
+				{label $name:$key, class => "form-check-label" /}
+			</div>
+		{/foreach}
 	</div>
 {/define}
 
 {define submit, string $name, ?string $class = null}
 	{do $inputClass = "btn btn-primary"}
-	{input $name, data-btn-submit => true, class => $class
-	? "$class"
-	: "$inputClass"}
+	{input $name, data-btn-submit => true, class => $class ? "$class" : "$inputClass"}
 {/define}
