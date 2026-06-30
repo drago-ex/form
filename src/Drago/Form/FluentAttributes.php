@@ -21,4 +21,10 @@ trait FluentAttributes
 	{
 		return $this->setHtmlAttribute('placeholder', $value);
 	}
+
+
+	public function setReadOnly(): static
+	{
+		return $this->setHtmlAttribute('readonly');
+	}
 }
