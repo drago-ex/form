@@ -1,4 +1,4 @@
-import TomSelect from 'tom-select';
+import TomSelect from 'src/assets/tom-select.js';
 
 export default class TomSelectHandler {
 	initialize(naja) {
