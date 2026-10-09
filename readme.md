@@ -8,6 +8,7 @@ It provides basic form input building blocks and a flexible Latte template for r
 [![Coding Style](https://github.com/drago-ex/form/actions/workflows/coding-style.yml/badge.svg)](https://github.com/drago-ex/form/actions/workflows/coding-style.yml)
 
 ## Requirements
+
 - PHP >= 8.3
 - Nette Framework
 - Composer
@@ -16,17 +17,20 @@ It provides basic form input building blocks and a flexible Latte template for r
 - Node.js
 
 ## Installation
+
 ```bash
 composer require drago-ex/form
 ```
 
 ## Project files
+
 File copying is handled automatically by [drago-ex/project-tools](https://github.com/drago-ex/project-tools),
 which must be installed in your project. Without it, copy the files manually according to the `copy` section
 in this package's `composer.json`. To skip this package, set `"skip": true` under
 `extra.drago-tools.packages.<package-name>` in your root `composer.json`.
 
 ## Examples
+
 ```php
 $form = new Drago\Form\Forms();
 
@@ -40,12 +44,14 @@ $form->addIntegerInput('age', 'Age')
 ```
 
 ## ExtraForms
+
 `ExtraForms` extends `Forms` with commonly used preconfigured fields:
 - `addPasswordField()` - password input named `password`.
 - `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
 - `addEmailField()` - email input named `email` with autocomplete and email validation.
 
 ## Password rules
+
 `PasswordRules` provides reusable validation for strong passwords.
 
 ```php
@@ -66,6 +72,7 @@ The strong password rule requires:
 - no whitespace characters
 
 ## Features
+
 - Autocomplete enum - standard values for HTML autocomplete.
 - FluentAttributes trait - fluent setters for autocomplete and placeholder.
 - Forms class - extended Nette Form with helper methods:
@@ -73,6 +80,7 @@ The strong password rule requires:
 - Custom inputs: Input, IntegerInput (min/max), Textarea - all support fluent attributes.
 
 ## Latte Template
+
 Use the provided Latte form template to render forms with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
 ```latte
 {embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
@@ -87,6 +95,7 @@ Use the provided Latte form template to render forms with Bootstrap 5 styling. T
 ```
 
 ## JavaScript setup
+
 Since the package is installed via Composer, add the following to your `package.json` to make the `drago-form` alias available in your bundler:
 ```json
 {
@@ -99,12 +108,14 @@ Since the package is installed via Composer, add the following to your `package.
 Then run `npm install`.
 
 ## JavaScript buttons disabled
+
 Optionally, include the submit disable script to prevent multiple submits on valid form:
 ```js
 import SubmitButtonDisable from 'drago-form/submit-disable';
 ```
 
 ## Password hide/show
+
 ```latte
 {embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
      {import 'path/to/@form-password.latte'}
@@ -115,12 +126,14 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
 ```
 
 ## JavaScript show/hide password
+
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
 import 'drago-form/styles/password-toggle';
 ```
 
 ## JavaScript Tom select
+
 ```js
 import TomSelectHandler from 'drago-form/tom-select';
 import 'drago-form/styles/tom-select';
@@ -136,6 +149,7 @@ import 'drago-form/styles/tom-select';
 ```
 
 ## Notes
+
 - Fully compatible with Nette Forms API - all original methods remain functional.
 - Fluent methods are optional; you can still use standard Nette Form controls.
 - Designed for type safety and clean, readable code.
