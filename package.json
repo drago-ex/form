@@ -1,27 +1,27 @@
 {
-  "name": "drago-form",
-  "version": "1.0.0",
-  "type": "module",
-  "exports": {
-	".": "./src/assets/index.js",
-	"./password-toggle": "./src/assets/password-toggle.js",
-	"./submit-disable": "./src/assets/submit-disable.js",
-	"./tom-select": "./src/assets/tom-select.js",
-	"./styles/password-toggle": "./src/assets/password-toggle.scss",
-	"./styles/tom-select": "./src/assets/tom-select.scss"
-  },
-  "sideEffects": ["**/*.scss"],
-  "peerDependencies": {
-	"naja": ">=3.0.0",
-	"tom-select": ">=2.0.0"
-  },
-  "peerDependenciesMeta": {
-	"tom-select": {
-	  "optional": true
+	"name": "drago-form",
+	"version": "1.0.0",
+	"type": "module",
+	"exports": {
+		".": "./src/assets/index.js",
+		"./password-toggle": "./src/assets/password-toggle.js",
+		"./submit-disable": "./src/assets/submit-disable.js",
+		"./tom-select": "./src/assets/tom-select.js",
+		"./styles/password-toggle": "./src/assets/password-toggle.scss",
+		"./styles/tom-select": "./src/assets/tom-select.scss"
+	},
+	"sideEffects": ["**/*.scss"],
+	"devDependencies": {
+		"naja": "^3.2.1",
+		"tom-select": "^2.4.3"
+	},
+	"peerDependencies": {
+		"naja": ">=3.0.0",
+		"tom-select": ">=2.0.0"
+	},
+	"peerDependenciesMeta": {
+		"tom-select": {
+			"optional": true
+		}
 	}
-  },
-  "devDependencies": {
-	"naja": "^3.2.1",
-	"tom-select": "^2.4.3"
-  }
 }
