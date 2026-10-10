@@ -11,17 +11,13 @@
 		"./styles/tom-select": "./src/assets/tom-select.scss"
 	},
 	"sideEffects": ["**/*.scss"],
-	"devDependencies": {
-		"naja": "^3.2.1",
+	"dependencies": {
 		"tom-select": "^2.4.3"
 	},
-	"peerDependencies": {
-		"naja": ">=3.0.0",
-		"tom-select": ">=2.0.0"
+	"devDependencies": {
+		"naja": "^3.2.1"
 	},
-	"peerDependenciesMeta": {
-		"tom-select": {
-			"optional": true
-		}
+	"peerDependencies": {
+		"naja": ">=3.0.0"
 	}
 }
