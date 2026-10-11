@@ -37,8 +37,8 @@ class ExtraForms extends Forms
 	{
 		return $this->addEmailInput('email', 'Email')
 			->setPlaceholder('Email address')
-			->setRequired('Please enter your email address.')
 			->setAutocomplete(Autocomplete::Email)
+			->setRequired('Please enter your email address.')
 			->addRule(Form::Email);
 	}
 }
