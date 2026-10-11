@@ -29,9 +29,6 @@
 			"Drago\\": "src"
 		}
 	},
-	"scripts": {
-		"phpstan": "phpstan analyse"
-	},
 	"extra": {
 		"drago-tools": {
 			"install": {
@@ -43,5 +40,8 @@
 		"drago-translator": {
 			"translation": "src/Form/Translate"
 		}
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse"
 	}
 }
