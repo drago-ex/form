@@ -10,15 +10,6 @@ use Nette\Application\UI\Form;
 /** Extended Nette Form with helper methods and fluent input support. */
 class Forms extends Form
 {
-	private function createInput(string $name, ?string $label, string $type = 'text'): Input
-	{
-		$input = new Input($label);
-		$input->setHtmlType($type);
-		$this->addComponent($input, $name);
-		return $input;
-	}
-
-
 	public function addTextInput(string $name, ?string $label = null): Input
 	{
 		return $this->createInput($name, $label);
@@ -48,6 +39,15 @@ class Forms extends Form
 	public function addTextAreaForm(string $name, ?string $label = null): Textarea
 	{
 		$input = new Textarea($label);
+		$this->addComponent($input, $name);
+		return $input;
+	}
+
+
+	private function createInput(string $name, ?string $label, string $type = 'text'): Input
+	{
+		$input = new Input($label);
+		$input->setHtmlType($type);
 		$this->addComponent($input, $name);
 		return $input;
 	}
