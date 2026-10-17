@@ -56,6 +56,6 @@ test('ExtraForms confirmation field must match the password', function () {
 	$form->addPasswordConfirmationField();
 
 	$form->setValues(['password' => 'Secret123!', 'verify' => 'Other123!']);
-	$form->validate();
-	Assert::same(['Passwords do not match.'], $form->getErrors());
+	$form['verify']->validate();
+	Assert::same(['Passwords do not match.'], $form['verify']->getErrors());
 });

@@ -18,7 +18,7 @@ function submit(IntegerInput $input, string $value): Forms
 	$form = $input->getForm();
 	assert($form instanceof Forms);
 	$input->setValue($value);
-	$form->validate();
+	$input->validate();
 	return $form;
 }
 
@@ -28,7 +28,7 @@ test('A valid number is converted to an integer', function () {
 	$input = $form->addIntegerInput('count');
 
 	submit($input, '42');
-	Assert::false($form->hasErrors());
+	Assert::false($input->hasErrors());
 	Assert::same(42, $input->getValue());
 });
 
@@ -38,12 +38,12 @@ test('A value that is not an integer is rejected on the server', function () {
 	$input = $form->addIntegerInput('count');
 
 	submit($input, 'abc');
-	Assert::true($form->hasErrors());
+	Assert::true($input->hasErrors());
 
 	$form = new Forms;
 	$input = $form->addIntegerInput('count');
 	submit($input, '1.5');
-	Assert::true($form->hasErrors());
+	Assert::true($input->hasErrors());
 });
 
 
@@ -52,7 +52,7 @@ test('An empty optional value is null and valid', function () {
 	$input = $form->addIntegerInput('count');
 
 	submit($input, '');
-	Assert::false($form->hasErrors());
+	Assert::false($input->hasErrors());
 	Assert::null($input->getValue());
 });
 
@@ -66,16 +66,16 @@ test('Minimum and maximum are checked on the server and rendered as attributes',
 	Assert::same('120', (string) $input->getControl()->max);
 
 	submit($input, '17');
-	Assert::true($form->hasErrors());
+	Assert::true($input->hasErrors());
 
 	$form = new Forms;
 	$input = $form->addIntegerInput('age')->setMin(18)->setMax(120);
 	submit($input, '121');
-	Assert::true($form->hasErrors());
+	Assert::true($input->hasErrors());
 
 	$form = new Forms;
 	$input = $form->addIntegerInput('age')->setMin(18)->setMax(120);
 	submit($input, '30');
-	Assert::false($form->hasErrors());
+	Assert::false($input->hasErrors());
 	Assert::same(30, $input->getValue());
 });
