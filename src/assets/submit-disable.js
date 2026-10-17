@@ -26,5 +26,10 @@ export default class SubmitButtonDisable {
 		naja.snippetHandler.addEventListener('afterUpdate', (e) => {
 			submitDisable(e.detail.snippet);
 		});
+
+		// Buttons of a form that was not redrawn (server-side errors, failed request) must work again.
+		naja.addEventListener('complete', () => {
+			document.querySelectorAll('form.ajax [data-btn-submit]:disabled').forEach(btn => btn.disabled = false);
+		});
 	}
 }

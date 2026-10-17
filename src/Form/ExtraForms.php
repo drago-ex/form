@@ -20,13 +20,13 @@ class ExtraForms extends Forms
 
 	public function addPasswordConfirmationField(): Input
 	{
-		$passwordField = $this->addPasswordInput('verify', 'Password to check')
-			->setPlaceholder('Re-enter password')
-			->setRequired('Please enter your password to check.');
-
 		if (!isset($this['password'])) {
 			throw new \InvalidArgumentException('Password field is required for password confirmation.');
 		}
+
+		$passwordField = $this->addPasswordInput('verify', 'Password to check')
+			->setPlaceholder('Re-enter password')
+			->setRequired('Please enter your password to check.');
 
 		$passwordField->addRule(Form::Equal, 'Passwords do not match.', $this['password']);
 		return $passwordField;

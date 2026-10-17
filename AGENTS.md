@@ -16,6 +16,12 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `.github/`: CI workflows; keep their PHP versions and commands consistent with Composer and the package scripts.
 - `composer.json`: package metadata, dependency constraints, autoloading, and available Composer scripts.
 
+## Key Parts
+- `Drago\Form\Forms` adds typed inputs (`Input`, `IntegerInput`, `Textarea`); `ExtraForms` adds preconfigured email and password fields.
+- `IntegerInput` mirrors Nette's `addInteger()`: server-side integer rule, nullable, value converted to int; `setMin()` and `setMax()` add server-side rules.
+- `setReadOnly()` is only an HTML attribute; it does not protect the value.
+- `src/assets/latte` form widgets are rendered in `tests/Form/TemplatesTest.phpt`; `src/assets/*.js` are Naja extensions.
+
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.
