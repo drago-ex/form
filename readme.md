@@ -75,10 +75,18 @@ The strong password rule requires:
 ## Features
 
 - Autocomplete enum - standard values for HTML autocomplete.
-- FluentAttributes trait - fluent setters for autocomplete and placeholder.
+- FluentAttributes trait - fluent setters for autocomplete, placeholder and read-only.
 - Forms class - extended Nette Form with helper methods:
 - `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addTextAreaForm()`
-- Custom inputs: Input, IntegerInput (min/max), Textarea - all support fluent attributes.
+- Custom inputs: Input, IntegerInput, Textarea - all support fluent attributes.
+
+`IntegerInput` is validated as an integer on the server, like Nette's `addInteger()`: an empty value is `null`
+and a valid value is converted to `int`. `setMin()` and `setMax()` add server-side rules and render the
+`min` and `max` attributes.
+
+`setReadOnly()` only renders the HTML `readonly` attribute; the browser still submits the value and a user can
+change it. For values that must not be changed, use `setOmitted()` and keep the value on the server, or
+`setDisabled()`.
 
 ## Latte Template
 
@@ -110,9 +118,12 @@ Then run `npm install`.
 
 ## JavaScript buttons disabled
 
-Optionally, include the submit disable script to prevent multiple submits on valid form:
+Optionally, include the submit disable script to prevent multiple submits of a valid AJAX form.
+Buttons are enabled again when the request completes, so a form with server-side errors can be sent again:
 ```js
 import SubmitButtonDisable from 'drago-form/submit-disable';
+
+naja.registerExtension(new SubmitButtonDisable());
 ```
 
 ## Password hide/show
@@ -131,6 +142,8 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
 import 'drago-form/styles/password-toggle';
+
+naja.registerExtension(new PasswordToggle());
 ```
 
 ## JavaScript Tom select
@@ -138,6 +151,8 @@ import 'drago-form/styles/password-toggle';
 ```js
 import TomSelectHandler from 'drago-form/tom-select';
 import 'drago-form/styles/tom-select';
+
+naja.registerExtension(new TomSelectHandler());
 ```
 
 ```latte

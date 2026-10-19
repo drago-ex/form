@@ -45,4 +45,17 @@ test('ExtraForms confirmation field throws exception if password not present', f
 	Assert::exception(function () use ($form) {
 		$form->addPasswordConfirmationField();
 	}, InvalidArgumentException::class, 'Password field is required for password confirmation.');
+
+	Assert::false(isset($form['verify']), 'the form is left unchanged');
+});
+
+
+test('ExtraForms confirmation field must match the password', function () {
+	$form = new ExtraForms;
+	$form->addPasswordField();
+	$form->addPasswordConfirmationField();
+
+	$form->setValues(['password' => 'Secret123!', 'verify' => 'Other123!']);
+	$form['verify']->validate();
+	Assert::same(['Passwords do not match.'], $form['verify']->getErrors());
 });

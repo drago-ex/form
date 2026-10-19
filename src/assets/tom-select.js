@@ -4,6 +4,11 @@ export default class TomSelectHandler {
 	initialize(naja) {
 		const tomSelect = (el) => {
 			el.querySelectorAll('.select-tom').forEach(e => {
+				// Tom Select throws when an element is initialized twice, e.g. in an appended snippet.
+				if (e.tomselect) {
+					return;
+				}
+
 				const isLocked = e.hasAttribute('data-locked');
 
 				e._tom = new TomSelect(e, {

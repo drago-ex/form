@@ -42,8 +42,8 @@ test('Forms adding integer input with min/max', function () {
 	Assert::same('number', $num->getControlPrototype()->type);
 
 	$num->setMin(1)->setMax(100);
-	Assert::same('1', $num->getControlPrototype()->min);
-	Assert::same('100', $num->getControlPrototype()->max);
+	Assert::same('1', (string) $num->getControl()->min);
+	Assert::same('100', (string) $num->getControl()->max);
 });
 
 test('Forms adding textarea and fluent attributes', function () {
