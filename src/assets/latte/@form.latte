@@ -4,11 +4,7 @@
 {default ?string $najaHistory = null}
 {default bool $defaultClass = true}
 
-{do $formAttr = [
-	'data-naja-history' => $najaHistory ?? null,
-]}
-
-<form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class ?? null" n:attr="$formAttr">
+<form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class" n:attr="data-naja-history: $najaHistory">
 	<ul n:if="$form->hasErrors()" class="errors">
 		<li n:foreach="$form->errors as $error">{_$error}</li>
 	</ul>
@@ -21,25 +17,10 @@
 {define input, string $type = 'text', string $name, int $columns = 12, ?string $class = null, int $rows = 3}
 	<div class="col-md-{$columns} form-error">
 		{label $name, class => "form-label fw-semibold" /}
-		{if $type === 'select'}
-			{input $name, class => $class
-			? "form-select $class"
-			: "form-select"}
-
-		{elseif $type === 'textarea'}
-			{input $name, rows => $rows, class => $class
-			? "form-control $class"
-			: "form-control"}
-
-		{elseif $type === 'range'}
-			{input $name, class => $class
-			? "form-range $class"
-			: "form-range"}
-
-		{else}
-			{input $name, class => $class
-			? "form-control $class"
-			: "form-control"}
+		{if $type === 'select'}{input $name, class => ['form-select', $class]}
+		{elseif $type === 'textarea'}{input $name, rows => $rows, class => ['form-control', $class]}
+		{elseif $type === 'range'}{input $name, class => ['form-range', $class]}
+		{else}{input $name, class => ['form-control', $class]}
 		{/if}
 	</div>
 {/define}
@@ -47,16 +28,17 @@
 {define checkbox, string $name, int $columns = 12, ?string $class = null}
 	<div class="col-md-{$columns} form-error">
 		<div class="form-check">
-			{input $name, class => $class ? "form-check-input $class" : "form-check-input"}
-			{label $name, class => "form-check-label" /}
+			{input $name:, class => ['form-check-input', $class]}
+			{label $name:, class => "form-check-label" /}
 		</div>
 	</div>
 {/define}
 
+{* Renders each item of a CheckboxList or RadioList *}
 {define checkboxList, string $name, int $columns = 12, ?string $label = null}
 
 	{var $control = $form[$name]}
-	{varType Nette\Forms\Controls\CheckboxList $control}
+	{varType Nette\Forms\Controls\ChoiceControl|Nette\Forms\Controls\MultiChoiceControl $control}
 
 	<div class="col-md-{$columns} form-error">
 		<div n:if="$label" class="form-label fw-semibold">{$label}</div>
@@ -70,22 +52,9 @@
 {/define}
 
 {define radioList, string $name, int $columns = 12, ?string $label = null}
-
-	{var $control = $form[$name]}
-	{varType Nette\Forms\Controls\RadioList $control}
-
-	<div class="col-md-{$columns} form-error">
-		<div n:if="$label" class="form-label fw-semibold">{$label}</div>
-		{foreach $control->getItems() as $key => $text}
-			<div class="form-check">
-				{input $name:$key, class => "form-check-input"}
-				{label $name:$key, class => "form-check-label" /}
-			</div>
-		{/foreach}
-	</div>
+	{include checkboxList, name: $name, columns: $columns, label: $label}
 {/define}
 
 {define submit, string $name, ?string $class = null}
-	{do $inputClass = "btn btn-primary"}
-	{input $name, data-btn-submit => true, class => $class ? "$class" : "$inputClass"}
+	{input $name, data-btn-submit => true, class => $class ?: 'btn btn-primary'}
 {/define}

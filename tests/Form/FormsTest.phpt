@@ -46,10 +46,31 @@ test('Forms adding integer input with min/max', function () {
 	Assert::same('100', (string) $num->getControl()->max);
 });
 
+test('Forms adding slug input', function () {
+	$form = new Forms;
+	$slug = $form->addSlugInput('slug', 'Slug');
+	Assert::type(Input::class, $slug);
+	Assert::same('off', $slug->getControlPrototype()->autocomplete);
+
+	foreach (['about-us', 'page2', 'a-1-b'] as $value) {
+		$slug->setValue($value);
+		$slug->cleanErrors();
+		$slug->validate();
+		Assert::false($slug->hasErrors(), $value);
+	}
+
+	foreach (['About-us', 'about--us', '-about', 'about-', 'about us', 'čeština'] as $value) {
+		$slug->setValue($value);
+		$slug->cleanErrors();
+		$slug->validate();
+		Assert::same(['Use lowercase letters, numbers and hyphens.'], $slug->getErrors(), $value);
+	}
+});
+
 test('Forms adding textarea and fluent attributes', function () {
 	$form = new Forms;
 
-	$area = $form->addTextAreaForm('description', 'Description');
+	$area = $form->addTextAreaInput('description', 'Description');
 	Assert::type(Textarea::class, $area);
 
 	$area->setPlaceholder('Enter description')

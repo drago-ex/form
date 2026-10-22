@@ -51,33 +51,13 @@ $form->addIntegerInput('age', 'Age')
 - `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
 - `addEmailField()` - email input named `email` with autocomplete and email validation.
 
-## Password rules
-
-`PasswordRules` provides reusable validation for strong passwords.
-
-```php
-use Drago\Form\Rules\PasswordRules;
-
-$form->addPasswordField()
-	->addRule($form::MinLength, 'Password must be at least %d characters long.', 8)
-	->addRule($form::Pattern, PasswordRules::strongMessage(), PasswordRules::strongPattern());
-```
-
-The strong password rule requires:
-
-- at least 8 characters
-- one uppercase letter
-- one lowercase letter
-- one number
-- one special character
-- no whitespace characters
-
 ## Features
 
 - Autocomplete enum - standard values for HTML autocomplete.
 - FluentAttributes trait - fluent setters for autocomplete, placeholder and read-only.
 - Forms class - extended Nette Form with helper methods:
-- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addTextAreaForm()`
+- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addSlugInput()`, `addTextAreaInput()`
+- `addSlugInput()` - text input with the `Forms::SlugPattern` rule (lowercase letters, numbers, single hyphens); the constant also fits route masks.
 - Custom inputs: Input, IntegerInput, Textarea - all support fluent attributes.
 
 `IntegerInput` is validated as an integer on the server, like Nette's `addInteger()`: an empty value is `null`

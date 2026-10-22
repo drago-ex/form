@@ -47,6 +47,7 @@ function createForm(): Forms
 	$form->addTextInput('username', 'Username');
 	$form->addPasswordInput('password', 'Password');
 	$form->addSelect('role', 'Role', ['admin' => 'Admin', 'user' => 'User']);
+	$form->addCheckbox('agree', 'Agree');
 	$form->addSubmit('send', 'Send');
 	return $form;
 }
@@ -70,6 +71,17 @@ test('The form template renders Bootstrap fields', function () {
 	Assert::true($dom->has('.col-md-6 input.form-control[name=username]'));
 	Assert::true($dom->has('select.form-select[name=role]'));
 	Assert::true($dom->has('input.btn.btn-primary[data-btn-submit][name=send]'));
+});
+
+
+test('The checkbox template renders a Bootstrap check', function () {
+	$form = createForm();
+	$html = createLatte('{embed "@form.latte", name: "register", form: $form}{block form}{include checkbox, name: "agree", class: "x"}{/block}{/embed}', $form)
+		->renderToString('page', ['form' => $form]);
+
+	$dom = DomQuery::fromHtml($html);
+	Assert::true($dom->has('.form-check > input.form-check-input.x[type=checkbox][name=agree]'));
+	Assert::true($dom->has('.form-check > label.form-check-label[for=frm-register-agree]'));
 });
 
 

@@ -18,6 +18,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 
 ## Key Parts
 - `Drago\Form\Forms` adds typed inputs (`Input`, `IntegerInput`, `Textarea`); `ExtraForms` adds preconfigured email and password fields.
+- `Forms::SlugPattern` is the one slug rule of the ecosystem: `addSlugInput()` validates with it and the blog and static-page routers use it in their route masks; its message is translated in `src/Form/Translate/cs.neon`.
 - `IntegerInput` mirrors Nette's `addInteger()`: server-side integer rule, nullable, value converted to int; `setMin()` and `setMax()` add server-side rules.
 - `setReadOnly()` is only an HTML attribute; it does not protect the value.
 - `src/assets/latte` form widgets are rendered in `tests/Form/TemplatesTest.phpt`; `src/assets/*.js` are Naja extensions.
