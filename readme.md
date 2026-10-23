@@ -1,5 +1,7 @@
 # Drago Form
 
+English | [Čeština](readme.cs.md)
+
 Drago Form is a lightweight and extendable form component built on top of the Nette Framework.
 It provides basic form input building blocks and a flexible Latte template for rendering Bootstrap 5 styled forms.
 
