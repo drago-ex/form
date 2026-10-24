@@ -6,7 +6,7 @@
 
 <form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class" n:attr="data-naja-history: $najaHistory">
 	<ul n:if="$form->hasErrors()" class="errors">
-		<li n:foreach="$form->errors as $error">{_$error}</li>
+		<li n:foreach="$form->errors as $error">{$error}</li>
 	</ul>
 
 	{* Block for form rendering *}
