@@ -59,7 +59,7 @@ $form->addIntegerInput('age', 'Age')
 - Trait FluentAttributes - fluent settery pro autocomplete, placeholder a pouze pro čtení.
 - Třída Forms - rozšířený formulář Nette s pomocnými metodami:
 - `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addSlugInput()`, `addTextAreaInput()`
-- `addSlugInput()` - textové pole s pravidlem `Forms::SlugPattern` (malá písmena, čísla, jednotlivé pomlčky); konstanta se hodí i do masek rout.
+- `addSlugInput()` - textové pole s pravidlem `Forms::SlugPattern` (malá písmena, čísla, jednotlivé pomlčky) a nejvýše 255 znaky, délkou sloupců pro slug; konstanta se hodí i do masek rout.
 - Vlastní pole: Input, IntegerInput, Textarea - všechna podporují fluent atributy.
 
 `IntegerInput` se na serveru ověřuje jako celé číslo, stejně jako `addInteger()` v Nette: prázdná hodnota je `null`

@@ -65,6 +65,12 @@ test('Forms adding slug input', function () {
 		$slug->validate();
 		Assert::same(['Use lowercase letters, numbers and hyphens.'], $slug->getErrors(), $value);
 	}
+
+	// a longer slug would fail only in the database (VARCHAR(255))
+	$slug->setValue(str_repeat('a', 256));
+	$slug->cleanErrors();
+	$slug->validate();
+	Assert::same(['The slug can have at most 255 characters.'], $slug->getErrors());
 });
 
 test('Forms adding textarea and fluent attributes', function () {

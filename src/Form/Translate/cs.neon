@@ -31,3 +31,4 @@
 "Email": "E-mail"
 "Password": "Heslo"
 "Use lowercase letters, numbers and hyphens.": "Použijte malá písmena, číslice a pomlčky."
+"The slug can have at most %d characters.": "Slug může mít nejvýše %d znaků."

@@ -40,11 +40,13 @@ class Forms extends Form
 	}
 
 
+	/** A slug of an address; at most 255 characters, the length of the slug columns (VARCHAR(255)). */
 	public function addSlugInput(string $name, ?string $label = null): Input
 	{
 		return $this->addTextInput($name, $label)
 			->setAutocomplete(Autocomplete::Off)
-			->addRule(self::Pattern, 'Use lowercase letters, numbers and hyphens.', self::SlugPattern);
+			->addRule(self::Pattern, 'Use lowercase letters, numbers and hyphens.', self::SlugPattern)
+			->addRule(self::MaxLength, 'The slug can have at most %d characters.', 255);
 	}
 
 

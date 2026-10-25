@@ -59,7 +59,7 @@ $form->addIntegerInput('age', 'Age')
 - FluentAttributes trait - fluent setters for autocomplete, placeholder and read-only.
 - Forms class - extended Nette Form with helper methods:
 - `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addSlugInput()`, `addTextAreaInput()`
-- `addSlugInput()` - text input with the `Forms::SlugPattern` rule (lowercase letters, numbers, single hyphens); the constant also fits route masks.
+- `addSlugInput()` - text input with the `Forms::SlugPattern` rule (lowercase letters, numbers, single hyphens) and at most 255 characters, the length of the slug columns; the constant also fits route masks.
 - Custom inputs: Input, IntegerInput, Textarea - all support fluent attributes.
 
 `IntegerInput` is validated as an integer on the server, like Nette's `addInteger()`: an empty value is `null`
