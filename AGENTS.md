@@ -7,7 +7,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 - **Type**: library
 - **Purpose**: Helper classes for Nette forms with extended inputs and shortcuts.
 - **PHP**: >=8.3 <9
-- **Runtime dependencies**: nette/application (^3.1), nette/forms (^3.0), latte/latte (^3.0)
+- **Runtime dependencies**: nette/application (^3.2), nette/forms (^3.2), latte/latte (^3.0)
 - **License**: MIT
 
 ## Repository Layout
@@ -26,7 +26,7 @@ Use this file as package-specific guidance when working in this repository. Keep
 ## Dependencies
 
 Composer constraints describe the package contract. Before changing integration behavior, inspect the source and the actual call sites in this package; do not infer runtime usage solely from dependency declarations.
-Development dependencies include nette/tester (^2.3), tracy/tracy (^2.7), phpstan/phpstan-nette (^2.0).
+Development dependencies include nette/tester (^2.5), tracy/tracy (^2.10), phpstan/phpstan-nette (^2.0).
 
 ## Essential Commands
 

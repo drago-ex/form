@@ -16,7 +16,7 @@
 		"latte/latte": "^3.0"
 	},
 	"suggest": {
-		"drago-ex/translator": "Configures Latte translation support for bundled templates using translation macros."
+		"drago-ex/translator": "Translates the labels and messages of the forms through the translator of the form."
 	},
 	"require-dev": {
 		"nette/tester": "^2.5",
