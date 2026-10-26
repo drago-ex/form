@@ -2,10 +2,7 @@
 	<div class="col-md-{$columns} form-error">
 		{label $name, class => "form-label" /}
 		<div class="m-0">
-			{do $inputClass = "form-select"}
-			{input $name, class => $class
-			? "$inputClass $class"
-			: "$inputClass"}
+			{input $name, class => ['form-select', $class]}
 		</div>
 	</div>
 {/define}

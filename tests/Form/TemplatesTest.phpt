@@ -93,4 +93,18 @@ test('The password template renders the toggle wrapper', function () {
 	$dom = DomQuery::fromHtml($html);
 	Assert::true($dom->has('.password-toggle-wrapper input.form-control.input-password[name=password]'));
 	Assert::true($dom->has('.password-toggle-wrapper button.toggle-password'));
+
+	$form = createForm();
+	$html = createLatte('{import "@form-password.latte"}<form n:name="register">{include password-toggle, name: "password", class: "extra"}</form>', $form)
+		->renderToString('page', ['form' => $form]);
+	Assert::contains('class="form-control input-password extra"', $html);
+});
+
+
+test('The Tom Select template adds the given class to form-select', function () {
+	$form = createForm();
+	$latte = createLatte('{import "@form-tom-select.latte"}<form n:name="register">{include selectTom, name: "role"}{include selectTom, name: "role", class: "tom-select"}</form>', $form);
+	$html = $latte->renderToString('page', ['form' => $form]);
+	Assert::contains('id="frm-register-role" class="form-select">', $html);
+	Assert::contains('id="frm-register-role" class="form-select tom-select">', $html);
 });
