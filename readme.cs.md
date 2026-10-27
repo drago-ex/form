@@ -1,7 +1,5 @@
 # Drago Form
 
-[English](readme.md) | Čeština
-
 Drago Form je malá a rozšiřitelná formulářová komponenta postavená na Nette Frameworku.
 Poskytuje základní stavební prvky formulářových polí a flexibilní šablonu Latte pro vykreslení formulářů ve stylu Bootstrap 5.
 
