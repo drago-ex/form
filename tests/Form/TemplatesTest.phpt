@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: bundled Latte form templates
  */
-
-declare(strict_types=1);
 
 use Drago\Form\Forms;
 use Latte\Engine;
@@ -63,7 +61,10 @@ test('All bundled templates compile', function () {
 
 test('The form template renders Bootstrap fields', function () {
 	$form = createForm();
-	$html = createLatte('{embed "@form.latte", name: "register", form: $form, class: "ajax"}{block form}{include input, name: "username", columns: 6}{include input, type: "select", name: "role"}{include submit, name: "send"}{/block}{/embed}', $form)
+	$html = createLatte(
+		'{embed "@form.latte", name: "register", form: $form, class: "ajax"}{block form}{include input, name: "username", columns: 6}{include input, type: "select", name: "role"}{include submit, name: "send"}{/block}{/embed}',
+		$form,
+	)
 		->renderToString('page', ['form' => $form]);
 
 	$dom = DomQuery::fromHtml($html);
@@ -76,7 +77,10 @@ test('The form template renders Bootstrap fields', function () {
 
 test('The checkbox template renders a Bootstrap check', function () {
 	$form = createForm();
-	$html = createLatte('{embed "@form.latte", name: "register", form: $form}{block form}{include checkbox, name: "agree", class: "x"}{/block}{/embed}', $form)
+	$html = createLatte(
+		'{embed "@form.latte", name: "register", form: $form}{block form}{include checkbox, name: "agree", class: "x"}{/block}{/embed}',
+		$form,
+	)
 		->renderToString('page', ['form' => $form]);
 
 	$dom = DomQuery::fromHtml($html);
@@ -95,7 +99,10 @@ test('The password template renders the toggle wrapper', function () {
 	Assert::true($dom->has('.password-toggle-wrapper button.toggle-password'));
 
 	$form = createForm();
-	$html = createLatte('{import "@form-password.latte"}<form n:name="register">{include password-toggle, name: "password", class: "extra"}</form>', $form)
+	$html = createLatte(
+		'{import "@form-password.latte"}<form n:name="register">{include password-toggle, name: "password", class: "extra"}</form>',
+		$form,
+	)
 		->renderToString('page', ['form' => $form]);
 	Assert::contains('class="form-control input-password extra"', $html);
 });
@@ -103,7 +110,10 @@ test('The password template renders the toggle wrapper', function () {
 
 test('The Tom Select template adds the given class to form-select', function () {
 	$form = createForm();
-	$latte = createLatte('{import "@form-tom-select.latte"}<form n:name="register">{include selectTom, name: "role"}{include selectTom, name: "role", class: "tom-select"}</form>', $form);
+	$latte = createLatte(
+		'{import "@form-tom-select.latte"}<form n:name="register">{include selectTom, name: "role"}{include selectTom, name: "role", class: "tom-select"}</form>',
+		$form,
+	);
 	$html = $latte->renderToString('page', ['form' => $form]);
 	Assert::contains('id="frm-register-role" class="form-select">', $html);
 	Assert::contains('id="frm-register-role" class="form-select tom-select">', $html);

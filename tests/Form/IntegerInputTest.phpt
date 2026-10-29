@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: Drago\Form\IntegerInput
  */
-
-declare(strict_types=1);
 
 use Drago\Form\Forms;
 use Drago\Form\IntegerInput;

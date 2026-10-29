@@ -1,10 +1,8 @@
-<?php
+<?php declare(strict_types=1);
 
 /**
  * Test: Drago\Form\ExtraForms
  */
-
-declare(strict_types=1);
 
 use Drago\Form\Autocomplete;
 use Drago\Form\ExtraForms;
