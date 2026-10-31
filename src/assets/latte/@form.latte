@@ -25,10 +25,10 @@
 	</div>
 {/define}
 
-{define checkbox, string $name, int $columns = 12, ?string $class = null}
+{define checkbox, string $name, int $columns = 12, ?string $class = null, bool $switch = false}
 	<div class="col-md-{$columns} form-error">
-		<div class="form-check">
-			{input $name:, class => ['form-check-input', $class]}
+		<div n:class="form-check, $switch ? form-switch">
+			{input $name:, class => ['form-check-input', $class], role => $switch ? switch : null}
 			{label $name:, class => "form-check-label" /}
 		</div>
 	</div>

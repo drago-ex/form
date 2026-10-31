@@ -86,6 +86,21 @@ test('The checkbox template renders a Bootstrap check', function () {
 	$dom = DomQuery::fromHtml($html);
 	Assert::true($dom->has('.form-check > input.form-check-input.x[type=checkbox][name=agree]'));
 	Assert::true($dom->has('.form-check > label.form-check-label[for=frm-register-agree]'));
+	Assert::false($dom->has('.form-switch'));
+	Assert::false($dom->has('input[role]'));
+});
+
+
+test('The checkbox template renders a Bootstrap switch', function () {
+	$form = createForm();
+	$html = createLatte(
+		'{embed "@form.latte", name: "register", form: $form}{block form}{include checkbox, name: "agree", switch: true}{/block}{/embed}',
+		$form,
+	)
+		->renderToString('page', ['form' => $form]);
+
+	$dom = DomQuery::fromHtml($html);
+	Assert::true($dom->has('.form-check.form-switch > input.form-check-input[type=checkbox][role=switch][name=agree]'));
 });
 
 

@@ -81,6 +81,11 @@ Pro vykreslení formulářů ve stylu Bootstrap 5 použijte dodanou šablonu Lat
 {/embed}
 ```
 
+Checkbox se vykreslí jako zaškrtávací pole Bootstrapu, se `switch: true` jako přepínač:
+```latte
+{include checkbox, name: 'newsletter', switch: true}
+```
+
 ## Nastavení JavaScriptu
 
 Balíček se instaluje přes Composer, proto přidejte do `package.json` následující, aby byl v bundleru dostupný alias `drago-form`:

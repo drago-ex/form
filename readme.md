@@ -81,6 +81,11 @@ Use the provided Latte form template to render forms with Bootstrap 5 styling. T
 {/embed}
 ```
 
+A checkbox is rendered as a Bootstrap check, or with `switch: true` as a switch:
+```latte
+{include checkbox, name: 'newsletter', switch: true}
+```
+
 ## JavaScript setup
 
 Since the package is installed via Composer, add the following to your `package.json` to make the `drago-form` alias available in your bundler:
