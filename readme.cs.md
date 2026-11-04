@@ -86,7 +86,29 @@ Checkbox se vykreslí jako zaškrtávací pole Bootstrapu, se `switch: true` jak
 {include checkbox, name: 'newsletter', switch: true}
 ```
 
-## Nastavení JavaScriptu
+## Skrytí a zobrazení hesla
+
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-password.latte'}
+     {block form}
+          {include password-toggle, name: 'password', columns: 12}
+     {/block}
+{/embed}
+```
+
+## Tom Select
+
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-tom-select.latte'}
+     {block form}
+          {include selectTom, name: 'tom', columns: 12, class: 'select-tom'}
+     {/block}
+{/embed}
+```
+
+## Assety
 
 Balíček se instaluje přes Composer, proto přidejte do `package.json` následující, aby byl v bundleru dostupný alias `drago-form`:
 ```json
@@ -99,7 +121,7 @@ Balíček se instaluje přes Composer, proto přidejte do `package.json` násled
 ```
 Potom spusťte `npm install`.
 
-## Vypnutí tlačítek v JavaScriptu
+### Vypnutí tlačítka odeslání
 
 Volitelně připojte skript pro vypnutí odeslání, který zabrání vícenásobnému odeslání platného AJAXového formuláře.
 Tlačítka se po dokončení požadavku znovu zapnou, takže formulář s chybami ze serveru lze odeslat znovu:
@@ -109,42 +131,28 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
 naja.registerExtension(new SubmitButtonDisable());
 ```
 
-## Skrytí a zobrazení hesla
-
-```latte
-{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
-     {import 'path/to/@form-password.latte'}
-     {block form}
-          {include password-toggle, name: 'password', columns: 12}
-     {/block}
-{/embed}
-```
-
-## Zobrazení a skrytí hesla v JavaScriptu
+### Skrytí a zobrazení hesla
 
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
-import 'drago-form/styles/password-toggle';
 
 naja.registerExtension(new PasswordToggle());
 ```
 
-## Tom Select v JavaScriptu
+```scss
+@import 'drago-form/styles/password-toggle';
+```
+
+### Tom Select
 
 ```js
 import TomSelectHandler from 'drago-form/tom-select';
-import 'drago-form/styles/tom-select';
 
 naja.registerExtension(new TomSelectHandler());
 ```
 
-```latte
-{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
-     {import 'path/to/@form-tom-select.latte'}
-     {block form}
-          {include selectTom, name: 'tom', columns: 12, class: 'select-tom'}
-     {/block}
-{/embed}
+```scss
+@import 'drago-form/styles/tom-select';
 ```
 
 ## Poznámky

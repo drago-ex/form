@@ -86,7 +86,29 @@ A checkbox is rendered as a Bootstrap check, or with `switch: true` as a switch:
 {include checkbox, name: 'newsletter', switch: true}
 ```
 
-## JavaScript setup
+## Password hide/show
+
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-password.latte'}
+     {block form}
+          {include password-toggle, name: 'password', columns: 12}
+     {/block}
+{/embed}
+```
+
+## Tom Select
+
+```latte
+{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
+     {import 'path/to/@form-tom-select.latte'}
+     {block form}
+          {include selectTom, name: 'tom', columns: 12, class: 'select-tom'}
+     {/block}
+{/embed}
+```
+
+## Assets
 
 Since the package is installed via Composer, add the following to your `package.json` to make the `drago-form` alias available in your bundler:
 ```json
@@ -99,7 +121,7 @@ Since the package is installed via Composer, add the following to your `package.
 ```
 Then run `npm install`.
 
-## JavaScript buttons disabled
+### Submit button disable
 
 Optionally, include the submit disable script to prevent multiple submits of a valid AJAX form.
 Buttons are enabled again when the request completes, so a form with server-side errors can be sent again:
@@ -109,42 +131,28 @@ import SubmitButtonDisable from 'drago-form/submit-disable';
 naja.registerExtension(new SubmitButtonDisable());
 ```
 
-## Password hide/show
-
-```latte
-{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
-     {import 'path/to/@form-password.latte'}
-     {block form}
-          {include password-toggle, name: 'password', columns: 12}
-     {/block}
-{/embed}
-```
-
-## JavaScript show/hide password
+### Password hide/show
 
 ```js
 import PasswordToggle from 'drago-form/password-toggle';
-import 'drago-form/styles/password-toggle';
 
 naja.registerExtension(new PasswordToggle());
 ```
 
-## JavaScript Tom select
+```scss
+@import 'drago-form/styles/password-toggle';
+```
+
+### Tom Select
 
 ```js
 import TomSelectHandler from 'drago-form/tom-select';
-import 'drago-form/styles/tom-select';
 
 naja.registerExtension(new TomSelectHandler());
 ```
 
-```latte
-{embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
-     {import 'path/to/@form-tom-select.latte'}
-     {block form}
-          {include selectTom, name: 'tom', columns: 12, class: 'select-tom'}
-     {/block}
-{/embed}
+```scss
+@import 'drago-form/styles/tom-select';
 ```
 
 ## Notes
