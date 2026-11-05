@@ -1,7 +1,7 @@
 # Drago Form
 
-Drago Form is a lightweight and extendable form component built on top of the Nette Framework.
-It provides basic form input building blocks and a flexible Latte template for rendering Bootstrap 5 styled forms.
+Nette forms with typed inputs and fluent attributes (autocomplete, placeholder, read-only), ready-made
+email and password fields, and Latte templates for Bootstrap 5 forms with a password toggle and Tom Select.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/form/blob/main/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fform.svg)](https://badge.fury.io/ph/drago-ex%2Fform)
@@ -23,12 +23,10 @@ It provides basic form input building blocks and a flexible Latte template for r
 composer require drago-ex/form
 ```
 
-## Files copied into the project
+[Project Tools](https://github.com/drago-ex/project-tools) copies the Latte widgets `@form`, `@form-password` and
+`@form-tom-select` into `app/Presentation/Accessory/Widget`, where you adapt them.
 
-The files are copied into the project by [drago-ex/project-tools](https://github.com/drago-ex/project-tools),
-as set in `extra.drago-tools` of this package's `composer.json`.
-
-## Examples
+## Forms
 
 ```php
 $form = new Drago\Form\Forms();
@@ -42,21 +40,13 @@ $form->addIntegerInput('age', 'Age')
      ->setMax(120);
 ```
 
-## ExtraForms
+## Inputs
 
-`ExtraForms` extends `Forms` with commonly used preconfigured fields:
-- `addPasswordField()` - password input named `password`.
-- `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
-- `addEmailField()` - email input named `email` with autocomplete and email validation.
+`Drago\Form\Forms` adds `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`,
+`addSlugInput()` and `addTextAreaInput()`; their inputs have the fluent setters `setAutocomplete()` (values of the
+`Autocomplete` enum), `setPlaceholder()` and `setReadOnly()`. Standard Nette controls keep working.
 
-## Features
-
-- Autocomplete enum - standard values for HTML autocomplete.
-- FluentAttributes trait - fluent setters for autocomplete, placeholder and read-only.
-- Forms class - extended Nette Form with helper methods:
-- `addTextInput()`, `addEmailInput()`, `addPasswordInput()`, `addIntegerInput()`, `addSlugInput()`, `addTextAreaInput()`
-- `addSlugInput()` - text input with the `Forms::SlugPattern` rule (lowercase letters, numbers, single hyphens) and at most 255 characters, the length of the slug columns; the constant also fits route masks.
-- Custom inputs: Input, IntegerInput, Textarea - all support fluent attributes.
+`addSlugInput()` is a text input with the `Forms::SlugPattern` rule (lowercase letters, numbers, single hyphens) and at most 255 characters, the length of the slug columns; the constant also fits route masks.
 
 `IntegerInput` is validated as an integer on the server, like Nette's `addInteger()`: an empty value is `null`
 and a valid value is converted to `int`. `setMin()` and `setMax()` add server-side rules and render the
@@ -66,9 +56,16 @@ and a valid value is converted to `int`. `setMin()` and `setMax()` add server-si
 change it. For values that must not be changed, use `setOmitted()` and keep the value on the server, or
 `setDisabled()`.
 
+## ExtraForms
+
+`ExtraForms` extends `Forms` with commonly used preconfigured fields:
+- `addPasswordField()` - password input named `password`.
+- `addPasswordConfirmationField()` - password confirmation named `verify`, validated against `password`.
+- `addEmailField()` - email input named `email` with autocomplete and email validation.
+
 ## Latte Template
 
-Use the provided Latte form template to render forms with Bootstrap 5 styling. The templates rely on Bootstrap 5 classes, so make sure Bootstrap is installed in your project:
+`@form.latte` renders a form with Bootstrap 5 classes:
 ```latte
 {embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
      {block form}
@@ -110,7 +107,7 @@ A checkbox is rendered as a Bootstrap check, or with `switch: true` as a switch:
 
 ## Assets
 
-Since the package is installed via Composer, add the following to your `package.json` to make the `drago-form` alias available in your bundler:
+Add the Composer package as a local npm dependency in `package.json` (Drago Project installs it by itself), so the bundler knows `drago-form`:
 ```json
 {
   "type": "module",
@@ -123,7 +120,7 @@ Then run `npm install`.
 
 ### Submit button disable
 
-Optionally, include the submit disable script to prevent multiple submits of a valid AJAX form.
+The submit disable script to prevent multiple submits of a valid AJAX form.
 Buttons are enabled again when the request completes, so a form with server-side errors can be sent again:
 ```js
 import SubmitButtonDisable from 'drago-form/submit-disable';
@@ -155,8 +152,3 @@ naja.registerExtension(new TomSelectHandler());
 @import 'drago-form/styles/tom-select';
 ```
 
-## Notes
-
-- Fully compatible with Nette Forms API - all original methods remain functional.
-- Fluent methods are optional; you can still use standard Nette Form controls.
-- Designed for type safety and clean, readable code.
