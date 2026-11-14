@@ -1,7 +1,8 @@
 # Drago Form
 
 Nette forms with typed inputs and fluent attributes (autocomplete, placeholder, read-only), ready-made
-email and password fields, and Latte templates for Bootstrap 5 forms with a password toggle and Tom Select.
+email and password fields, and Latte templates for Bootstrap 5 forms with a password toggle and Tom Select, in the look of
+[compostrap](https://github.com/compostrap/compostrap).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/drago-ex/form/blob/main/license)
 [![PHP version](https://badge.fury.io/ph/drago-ex%2Fform.svg)](https://badge.fury.io/ph/drago-ex%2Fform)
@@ -14,6 +15,7 @@ email and password fields, and Latte templates for Bootstrap 5 forms with a pass
 - Nette Framework
 - Composer
 - Bootstrap
+- [compostrap](https://github.com/compostrap/compostrap) (the password toggle)
 - Naja
 - Node.js
 
@@ -65,7 +67,7 @@ change it. For values that must not be changed, use `setOmitted()` and keep the 
 
 ## Latte Template
 
-`@form.latte` renders a form with Bootstrap 5 classes:
+`@form.latte` renders a form with Bootstrap 5 classes; the errors of the form stand over the fields as an alert:
 ```latte
 {embed 'path/to/@form.latte', name: 'register', class: 'ajax'}
      {block form}
@@ -84,6 +86,8 @@ A checkbox is rendered as a Bootstrap check, or with `switch: true` as a switch:
 ```
 
 ## Password hide/show
+
+The password field has a button that shows the password, the markup of the module `password-toggle` of compostrap:
 
 ```latte
 {embed 'path/to/@form.latte', name: 'add', class: 'ajax'}
@@ -130,14 +134,16 @@ naja.registerExtension(new SubmitButtonDisable());
 
 ### Password hide/show
 
-```js
-import PasswordToggle from 'drago-form/password-toggle';
+The button is the module `password-toggle` of compostrap (it needs no Naja extension):
 
-naja.registerExtension(new PasswordToggle());
+```js
+import { PasswordToggle } from 'compostrap/password-toggle';
+
+PasswordToggle.init();
 ```
 
 ```scss
-@import 'drago-form/styles/password-toggle';
+@import 'compostrap/src/scss/password-toggle';
 ```
 
 ### Tom Select
@@ -151,4 +157,3 @@ naja.registerExtension(new TomSelectHandler());
 ```scss
 @import 'drago-form/styles/tom-select';
 ```
-

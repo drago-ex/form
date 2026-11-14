@@ -21,7 +21,8 @@ Use this file as package-specific guidance when working in this repository. Keep
 - `Forms::SlugPattern` is the one slug rule of the ecosystem: `addSlugInput()` validates with it and the blog and static-page routers use it in their route masks; its message is translated in `src/Form/Translate/cs.neon`.
 - `IntegerInput` mirrors Nette's `addInteger()`: server-side integer rule, nullable, value converted to int; `setMin()` and `setMax()` add server-side rules.
 - `setReadOnly()` is only an HTML attribute; it does not protect the value.
-- `src/assets/latte` form widgets are rendered in `tests/Form/TemplatesTest.phpt`; `src/assets/*.js` are Naja extensions.
+- `src/assets/latte` form widgets are rendered in `tests/Form/TemplatesTest.phpt`; `src/assets/*.js` are Naja extensions (`SubmitButtonDisable`, `TomSelectHandler`).
+- The widgets are written in the classes of compostrap: `@form` prints the errors of the form as an `alert-danger` list in a `col-12` over the fields, `@form-password` is the markup of the module `password-toggle` (`.password-toggle`, `button.password-toggle-btn[data-password-toggle]`, label "Show password"); the toggle is run by `PasswordToggle` of compostrap, the package has no script or style for it.
 
 ## Dependencies
 

@@ -5,9 +5,12 @@
 {default bool $defaultClass = true}
 
 <form n:name="$name" n:class="$defaultClass ? 'row g-3' : null, $class" n:attr="data-naja-history: $najaHistory">
-	<ul n:if="$form->hasErrors()" class="errors">
-		<li n:foreach="$form->errors as $error">{$error}</li>
-	</ul>
+	{* the errors of the form as an alert; a column, so it keeps the width of the fields in a form that is a row *}
+	<div n:if="$form->hasErrors()" class="col-12">
+		<ul class="alert alert-danger list-unstyled mb-0" role="alert">
+			<li n:foreach="$form->errors as $error">{$error}</li>
+		</ul>
+	</div>
 
 	{* Block for form rendering *}
 	{block form}{/block}

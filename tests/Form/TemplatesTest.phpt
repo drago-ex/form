@@ -75,6 +75,18 @@ test('The form template renders Bootstrap fields', function () {
 });
 
 
+test('The errors of the form are an alert over the fields', function () {
+	$form = createForm();
+	$form->addError('The form has an error.');
+	$html = createLatte('{embed "@form.latte", name: "register", form: $form}{block form}{/block}{/embed}', $form)
+		->renderToString('page', ['form' => $form]);
+
+	$dom = DomQuery::fromHtml($html);
+	Assert::true($dom->has('form .col-12 > ul.alert.alert-danger[role=alert] > li'));
+	Assert::same('The form has an error.', (string) $dom->find('.alert li')[0]);
+});
+
+
 test('The checkbox template renders a Bootstrap check', function () {
 	$form = createForm();
 	$html = createLatte(
@@ -104,14 +116,15 @@ test('The checkbox template renders a Bootstrap switch', function () {
 });
 
 
-test('The password template renders the toggle wrapper', function () {
+test('The password template renders the toggle of compostrap', function () {
 	$form = createForm();
 	$html = createLatte('{import "@form-password.latte"}<form n:name="register">{include password-toggle, name: "password"}</form>', $form)
 		->renderToString('page', ['form' => $form]);
 
 	$dom = DomQuery::fromHtml($html);
-	Assert::true($dom->has('.password-toggle-wrapper input.form-control.input-password[name=password]'));
-	Assert::true($dom->has('.password-toggle-wrapper button.toggle-password'));
+	Assert::true($dom->has('.password-toggle input.form-control[name=password]'));
+	$button = '.password-toggle button.password-toggle-btn[data-password-toggle][aria-pressed=false]';
+	Assert::true($dom->has($button . '[aria-label="Show password"]'));
 
 	$form = createForm();
 	$html = createLatte(
@@ -119,7 +132,7 @@ test('The password template renders the toggle wrapper', function () {
 		$form,
 	)
 		->renderToString('page', ['form' => $form]);
-	Assert::contains('class="form-control input-password extra"', $html);
+	Assert::contains('class="form-control extra"', $html);
 });
 
 
